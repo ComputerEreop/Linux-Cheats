@@ -1,9 +1,4 @@
-## Kali Linux 秘籍 中文版
-
-原书：[Kali Linux Cookbook](https://www.packtpub.com/networking-and-servers/kali-linux-cookbook)
-
-## 目录
-
+* [Kali Linux 秘籍 中文版](README.md)
 * [第一章 安装和启动Kali](ch1.md)
 * [第二章 定制 Kali Linux](ch2.md)
 * [第三章 高级测试环境](ch3.md)

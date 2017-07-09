@@ -1,0 +1,10 @@
+{
+    "author": "JackChan",
+    "description": "Linux秘籍",
+    "gitbook": "3.2.2",
+    "language": "zh-hans",
+    "title": "Linux秘籍",
+    "pdf": {
+        "fontFamily": "等线"
+    }
+}

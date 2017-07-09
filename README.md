@@ -2,6 +2,8 @@
 
 原书：[Kali Linux Cookbook](https://www.packtpub.com/networking-and-servers/kali-linux-cookbook)
 
+![](cover.jpg)
+
 ## 目录
 
 * [第一章 安装和启动Kali](ch1.md)

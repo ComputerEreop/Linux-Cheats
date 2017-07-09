@@ -33,19 +33,19 @@ Nessus 和 OpenVAS 都可以扫描出目标上相似的漏洞。这些漏洞包�
 
 让我们开始安装、配置和启动 Nessus， 首先打开终端窗口：
 
-1.  打开 Web 浏览器，访问这个网址：<http://www. tenable.com/products/nessus/select-your-operating-system>。
+1.打开 Web 浏览器，访问这个网址：<http://www. tenable.com/products/nessus/select-your-operating-system>。
 
-2.  在屏幕的左侧，`Download Nessus`的下面，选择`Linux`并且选择`Nessus-5.2.1-debian6_amd64.deb`（或新版本）。
+2.在屏幕的左侧，`Download Nessus`的下面，选择`Linux`并且选择`Nessus-5.2.1-debian6_amd64.deb`（或新版本）。
 
 ![](img/5-1-1.jpg)
 
-3.  将文件下载到本地根目录下。
+3.将文件下载到本地根目录下。
 
 ![](img/5-1-2.jpg)
 
-4.  打开终端窗口
+4.打开终端窗口
 
-5.  执行下列命令来安装 Nessus：
+5.执行下列命令来安装 Nessus：
 
 ```
 dpkg -i "Nessus-5.2.1-debian6_i386.deb"
@@ -55,9 +55,9 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 ![](img/5-1-3.jpg)
 
-6.  Nessus 会安装到`/opt/nessus`目录下。
+6.Nessus 会安装到`/opt/nessus`目录下。
 
-7.  一旦安装好了，你就能通过键入下列命令启动 Nessus：
+7.一旦安装好了，你就能通过键入下列命令启动 Nessus：
 
 ```
 /etc/init.d/nessusd start
@@ -65,7 +65,7 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 > 在你启动 Nessus 之前，你需要先拥有注册码。你可以从“更多”一节中得到更多信息。
 
-8.  通过执行下列命令，激活你的 Nessus：
+8.通过执行下列命令，激活你的 Nessus：
 
 ```
 /opt/nessus/bin/nessus-fetch --register XXXX-XXXX-XXXX-XXXX- XXXX
@@ -75,23 +75,23 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 > 取决于你的网络连接，这可能需要一到两分钟。
 
-9.  现在在终端中键入下列命令：
+9.现在在终端中键入下列命令：
 
 ```
 /opt/nessus/sbin/nessus-adduser
 ```
 
-0.  在登录提示框中，输入用户的登录名称。
+0.在登录提示框中，输入用户的登录名称。
 
-1.  输入两次密码。
+1.输入两次密码。
 
-2.  回答 Y（Yes），将用户设置为管理员。
+2.回答 Y（Yes），将用户设置为管理员。
 
 > 这一步只需要在第一次使用时操作。
 
-3.  完成后，你可以通过键入以下命令来启动 Nessus（没有用户账户则不能工作）。
+3.完成后，你可以通过键入以下命令来启动 Nessus（没有用户账户则不能工作）。
 
-4.  在<https://127.0.0.1:8834>上登录 Nessus。
+4.在<https://127.0.0.1:8834>上登录 Nessus。
 
 > 如果你打算使用 Nessus，要记得从安装在你的主机上 ，或者虚拟机上的kali Linux 版本中访问。原因是，Nessus会基于所使用的机器来激活自己。如果你安装到优盘上了，在每次重启后你都需要重新激活你的版本。
 
@@ -115,47 +115,47 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 让我们开始使用 Nessus 来发现本地漏洞，首先打开 Firefox 浏览器：
 
-1.  在 <https://127.0.0.1:8834> 登录 Nessus。
+1.在 <https://127.0.0.1:8834> 登录 Nessus。
 
-2.  访问` Policies`。
+2.访问` Policies`。
 
-3.  点击`New Policy`。
+3.点击`New Policy`。
 
 ![](img/5-2-1.jpg)
 
-4.  在`General Settings`标签页，进行如下操作：
+4.在`General Settings`标签页，进行如下操作：
 
-1.  在` Settings Type`中选择` Basic`。
+1.在` Settings Type`中选择` Basic`。
 
-2.  为你的扫描输入一个名称。我们选择了`Local Vulnerability Assessment`，但你可以选择想要的其它名称。
+2.为你的扫描输入一个名称。我们选择了`Local Vulnerability Assessment`，但你可以选择想要的其它名称。
 
-3.  有两个可见性的选择：‘
+3.有两个可见性的选择：‘
 
 +   `Shared`：其它用户可以利用这次扫描。
 
 +   `Private`：这次扫描只能被你使用。
 
-4.  其它项目保留默认。
+4.其它项目保留默认。
 
-5.  点击`Update`。
+5.点击`Update`。
 
-5.  在`Plugins`标签页中，选择`Disable All`并选择下列特定的漏洞：
+5.在`Plugins`标签页中，选择`Disable All`并选择下列特定的漏洞：
 
-1.  `Ubuntu Local Security Checks `。
+1.`Ubuntu Local Security Checks `。
 
-2.  ` Default Unix Accounts`。
+2.` Default Unix Accounts`。
 
 ![](img/5-2-2.jpg)
 
-6.  点击`Update`来保存新的策略。
+6.点击`Update`来保存新的策略。
 
-7.  在主菜单中，点击`Scan Queue`菜单选项。
+7.在主菜单中，点击`Scan Queue`菜单选项。
 
-8.  点击`New Scan`按钮并进行如下操作：
+8.点击`New Scan`按钮并进行如下操作：
 
-1.  为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
+1.为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
 
-2.  输入扫描类型：
+2.输入扫描类型：
 
 +   `Run Now`：默认开启，这个选项会立即运行扫描。
 
@@ -163,25 +163,25 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 +   `Template`：将扫描设置为模板。
 
-3.  选择扫描策略。这里，我们选择之前创建的`Local Vulnerabilities Assessment`策略。
+3.选择扫描策略。这里，我们选择之前创建的`Local Vulnerabilities Assessment`策略。
 
-4.  选择你的目标，包含下列要点：
+4.选择你的目标，包含下列要点：
 
 +   目标必须每行输入一个。
 
 +   你也可以在每行输入目标的范围。
 
-5.  你也可以上传目标文件（如果有的话）或选择` Add Target  IP Address`。
+5.你也可以上传目标文件（如果有的话）或选择` Add Target  IP Address`。
 
-9.  点击`Run Scan`：
+9.点击`Run Scan`：
 
 ![](img/5-2-3.jpg)
 
-0.  你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
+0.你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
 
-1.  一旦完成了，你会收到一份报告。
+1.一旦完成了，你会收到一份报告。
 
-2.  双击报告来分析下列要点（在`Results`标签页中）：
+2.双击报告来分析下列要点（在`Results`标签页中）：
 
 +   每个发现了漏洞的目标会被列出。
 
@@ -191,7 +191,7 @@ dpkg -i "Nessus-5.2.1-debian6_i386.deb"
 
 +   漏洞会详细列出。
 
-3.  点击`Reports`主菜单中的` Download Report `。
+3.点击`Reports`主菜单中的` Download Report `。
 
 ### 5.3 Nessus -  发现网络漏洞
 
@@ -211,29 +211,29 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 让我们开始使用 Nessus 来发现本地漏洞，首先打开 Firefox 浏览器：
 
-1.  在 <https://127.0.0.1:8834> 登录 Nessus。
+1.在 <https://127.0.0.1:8834> 登录 Nessus。
 
-2.  访问` Policies`。
+2.访问` Policies`。
 
-3.  点击`Add Policy`。
+3.点击`Add Policy`。
 
 ![](img/5-3-1.jpg)
 
-4.  在`General`标签页，进行如下操作：
+4.在`General`标签页，进行如下操作：
 
-1.  为你的扫描输入一个名称。我们选择了`Internal Network Scan`，但你可以选择想要的其它名称。
+1.为你的扫描输入一个名称。我们选择了`Internal Network Scan`，但你可以选择想要的其它名称。
 
-2.  有两个可见性的选择：‘
+2.有两个可见性的选择：‘
 
 +   `Shared`：其它用户可以利用这次扫描。
 
 +   `Private`：这次扫描只能被你使用。
 
-3.  其它项目保留默认。
+3.其它项目保留默认。
 
-4.  点击`Update`。
+4.点击`Update`。
 
-5.  在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞：
+5.在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞：
 
 +   `CISCO`     
 +   `DNS`     
@@ -254,15 +254,15 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 ![](img/5-3-2.jpg)
 
-6.  点击`Update`来保存新的策略。
+6.点击`Update`来保存新的策略。
 
-7.  在主菜单中，点击`Scan Queue`菜单选项。
+7.在主菜单中，点击`Scan Queue`菜单选项。
 
-8.  点击`New Scan`按钮并进行如下操作：
+8.点击`New Scan`按钮并进行如下操作：
 
-1.  为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
+1.为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
 
-2.  输入扫描类型：
+2.输入扫描类型：
 
 +   `Run Now`：默认开启，这个选项会立即运行扫描。
 
@@ -270,27 +270,27 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   `Template`：将扫描设置为模板。
 
-3.  选择扫描策略。这里，我们选择之前创建的`Internal Network Scan`策略。
+3.选择扫描策略。这里，我们选择之前创建的`Internal Network Scan`策略。
 
-4.  选择你的目标，包含下列要点：
+4.选择你的目标，包含下列要点：
 
 +   目标必须每行输入一个。
 
 +   你也可以在每行输入目标的范围。
 
-5.  你也可以上传目标文件（如果有的话）或选择` Add Target  IP Address`。
+5.你也可以上传目标文件（如果有的话）或选择` Add Target  IP Address`。
 
-9.  点击`Run Scan`：
+9.点击`Run Scan`：
 
 ![](img/5-3-3.jpg)
 
-0.  你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
+0.你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
 
 ![](img/5-3-4.jpg)
 
-1.  一旦完成了，你会收到一份报告，它在`Results`标签页中。
+1.一旦完成了，你会收到一份报告，它在`Results`标签页中。
 
-2.  双击报告来分析下列要点（在`Results`标签页中）：
+2.双击报告来分析下列要点（在`Results`标签页中）：
 
 +   每个发现了漏洞的目标会被列出。
 
@@ -300,7 +300,7 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   漏洞会详细列出。
 
-3.  点击`Reports`主菜单中的` Download Report `。
+3.点击`Reports`主菜单中的` Download Report `。
 
 ### 5.4 发现 Linux 特定漏洞
 
@@ -317,27 +317,27 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 让我们开始使用 Nessus 来发现 Linux 特定漏洞，首先打开 Firefox 浏览器：
 
-1.  在 <https://127.0.0.1:8834> 登录 Nessus。
+1.在 <https://127.0.0.1:8834> 登录 Nessus。
 
-2.  访问` Policies`。
+2.访问` Policies`。
 
-3.  点击`Add Policy`。
+3.点击`Add Policy`。
 
 ![](img/5-4-1.jpg)
 
-4.  在`General Settings `标签页，进行如下操作：
+4.在`General Settings `标签页，进行如下操作：
 
-1.  为你的扫描输入一个名称。我们选择了`Linux Vulnerability Scan`，但你可以选择想要的其它名称。
+1.为你的扫描输入一个名称。我们选择了`Linux Vulnerability Scan`，但你可以选择想要的其它名称。
 
-2.  有两个可见性的选择：‘
+2.有两个可见性的选择：‘
 
 +   `Shared`：其它用户可以利用这次扫描。
 
 +   `Private`：这次扫描只能被你使用。
 
-3.  其它项目保留默认。
+3.其它项目保留默认。
 
-5.  在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞。当我们扫描可能在我们的 Linux 目标上运行的服务时，这份列表会变得很长：
+5.在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞。当我们扫描可能在我们的 Linux 目标上运行的服务时，这份列表会变得很长：
 
 +   `Backdoors`
 +   `Brute Force Attacks`
@@ -369,15 +369,15 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 ![](img/5-4-2.jpg)
 
-6.  点击`Update`来保存新的策略。
+6.点击`Update`来保存新的策略。
 
-7.  在主菜单中，点击`Scan Queue`菜单选项。
+7.在主菜单中，点击`Scan Queue`菜单选项。
 
-8.  点击`New Scan`按钮并进行如下操作：
+8.点击`New Scan`按钮并进行如下操作：
 
-1.  为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
+1.为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
 
-2.  输入扫描类型：
+2.输入扫描类型：
 
 +   `Run Now`：默认开启，这个选项会立即运行扫描。
 
@@ -385,9 +385,9 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   `Template`：将扫描设置为模板。
 
-3.  选择扫描策略。这里，我们选择之前创建的`Linux Vulnerabilities Scan`策略。
+3.选择扫描策略。这里，我们选择之前创建的`Linux Vulnerabilities Scan`策略。
 
-4.  选择你的目标，包含下列要点：
+4.选择你的目标，包含下列要点：
 
 +   目标必须每行输入一个。
 
@@ -395,15 +395,15 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   上传目标文件（如果有的话）或选择` Add Target  IP Address`。
 
-9.  点击`Launch Scan`：
+9.点击`Launch Scan`：
 
 ![](img/5-4-3.jpg)
 
-0.  你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
+0.你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
 
-1.  一旦完成了，你会收到一份报告，它在 `Reports`标签页中。
+1.一旦完成了，你会收到一份报告，它在 `Reports`标签页中。
 
-2.  双击报告来分析下列要点：
+2.双击报告来分析下列要点：
 
 +   每个发现了漏洞的目标会被列出。
 
@@ -413,7 +413,7 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   漏洞会详细列出。
 
-3.  点击`Reports`主菜单中的` Download Report `。
+3.点击`Reports`主菜单中的` Download Report `。
 
 ### 5.5 Nessus - 发现 Windows 特定的漏洞
 
@@ -430,29 +430,29 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 让我们开始使用 Nessus 发现 Windows 特定的漏洞，首先打开 Firefox 浏览器：
 
-1.  在 <https://127.0.0.1:8834> 登录 Nessus。
+1.在 <https://127.0.0.1:8834> 登录 Nessus。
 
-2.  访问` Policies`。
+2.访问` Policies`。
 
-3.  点击`Add Policy`。
+3.点击`Add Policy`。
 
 ![](img/5-5-1.jpg)
 
-4.  在`General Settings `标签页，进行如下操作：
+4.在`General Settings `标签页，进行如下操作：
 
-1.  为你的扫描输入一个名称。我们选择了` Windows Vulnerability Scan`，但你可以选择想要的其它名称。
+1.为你的扫描输入一个名称。我们选择了` Windows Vulnerability Scan`，但你可以选择想要的其它名称。
 
-2.  有两个可见性的选择：‘
+2.有两个可见性的选择：‘
 
 +   `Shared`：其它用户可以利用这次扫描。
 
 +   `Private`：这次扫描只能被你使用。
 
-3.  其它项目保留默认。
+3.其它项目保留默认。
 
-4.  点击`Submit`。
+4.点击`Submit`。
 
-5.  在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞。它们可能出现在 Windows 系统中：
+5.在`Plugins`标签页中，点击` Disable All `并选择下列特定的漏洞。它们可能出现在 Windows 系统中：
 
 +   DNS  Databases  
 +   Denial of Service  
@@ -466,15 +466,15 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 ![](img/5-5-2.jpg)
 
-6.  点击`Submit`来保存新的策略。
+6.点击`Submit`来保存新的策略。
 
-7.  在主菜单中，点击`Scan`菜单选项。
+7.在主菜单中，点击`Scan`菜单选项。
 
-8.  点击`Add Scan`按钮并进行如下操作：
+8.点击`Add Scan`按钮并进行如下操作：
 
-1.  为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
+1.为你的扫描输入名称。如果你一次运行多个扫描，这会非常有用。这是区分当前运行的不同扫描的方式。
 
-2.  输入扫描类型：
+2.输入扫描类型：
 
 +   `Run Now`：默认开启，这个选项会立即运行扫描。
 
@@ -482,9 +482,9 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   `Template`：将扫描设置为模板。
 
-3.  选择扫描策略。这里，我们选择之前创建的`Windows Vulnerabilities Scan`策略。
+3.选择扫描策略。这里，我们选择之前创建的`Windows Vulnerabilities Scan`策略。
 
-4.  选择你的目标，包含下列要点：
+4.选择你的目标，包含下列要点：
 
 +   目标必须每行输入一个。
 
@@ -492,15 +492,15 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   上传目标文件（如果有的话）或选择` Add Target  IP Address`。
 
-9.  点击`Launch Scan`：
+9.点击`Launch Scan`：
 
 ![](img/5-5-3.jpg)
 
-0.  你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
+0.你会被要求确认，你的测试将会执行（取决于你选择了多少目标，以及要执行多少测试）。
 
-1.  一旦完成了，你会收到一份报告，它在 `Reports`标签页中。
+1.一旦完成了，你会收到一份报告，它在 `Reports`标签页中。
 
-2.  双击报告来分析下列要点：
+2.双击报告来分析下列要点：
 
 +   每个发现了漏洞的目标会被列出。
 
@@ -510,7 +510,7 @@ Nessus 允许我们攻击很多种类的漏洞，它们取决于我们的版本�
 
 +   漏洞会详细列出。
 
-3.  点击`Reports`主菜单中的` Download Report `。
+3.点击`Reports`主菜单中的` Download Report `。
 
 ### 5.6 安装、配置和启动 OpenVAS
 
@@ -524,15 +524,15 @@ OpenVAS，即开放漏洞评估系统，是一个用于评估目标漏洞的杰�
 
 让我们开始安装、配置和启动 OpenVAS，首先在终端窗口中访问它的路径。
 
-1.  OpenVAS 默认安装，并且只需要配置便于使用。
+1.OpenVAS 默认安装，并且只需要配置便于使用。
 
-2.  在终端窗口中，将路径变为 OpenVAS 的路径：
+2.在终端窗口中，将路径变为 OpenVAS 的路径：
 
 ```
 cd /usr/share/openvas
 ```
 
-3.  执行下列命令：
+3.执行下列命令：
 
 ```
 openvas-mkcert
@@ -540,21 +540,21 @@ openvas-mkcert
 
 这一步我们为 OpenVAS 创建了 SSL 证书。
 
-1.  保留 CA 的默认生命周期。
+1.保留 CA 的默认生命周期。
 
-2.  更新证书的生命周期，来匹配 CA 证书的天数：`1460`。
+2.更新证书的生命周期，来匹配 CA 证书的天数：`1460`。
 
-3.  输入国家或地区。
+3.输入国家或地区。
 
-4.  输入州或省。
+4.输入州或省。
 
-5.  组织名称保留默认。
+5.组织名称保留默认。
 
-6.  你会看到证书确认界面，之后按下回车键来退出。
+6.你会看到证书确认界面，之后按下回车键来退出。
 
 ![](img/5-6-1.jpg)
 
-4.  执行下列命令：
+4.执行下列命令：
 
 ```
 openvas-nvt-sync
@@ -564,7 +564,7 @@ openvas-nvt-sync
 
 ![](img/5-6-2.jpg)
 
-5.  执行下列命令：
+5.执行下列命令：
 
 ```
 openvas-mkcert-client -n om -i
@@ -573,7 +573,7 @@ openvasmd -rebuild
 
 这会生成客户证书并分别重构数据库。
 
-6.  执行下列命令：
+6.执行下列命令：
 
 ```
 openvassd
@@ -581,14 +581,14 @@ openvassd
 
 这会启动 OpenVAS 扫描器并加载所有插件（大约 26406 个），所以会花一些时间。
 
-7.  执行下列命令：
+7.执行下列命令：
 
 ```
 openvasmd --rebuild
 openvasmd --backup
 ```
 
-8.  执行下列命令来创建你的管理员用户（我们使用 `openvasadmin`）：
+8.执行下列命令来创建你的管理员用户（我们使用 `openvasadmin`）：
 
 ```
 openvasad -c  'add_user' -n openvasadmin -r admin
@@ -596,7 +596,7 @@ openvasad -c  'add_user' -n openvasadmin -r admin
 
 ![](img/5-6-3.jpg)
 
-9.  执行下列命令：
+9.执行下列命令：
 
 ```
 openvas-adduser
@@ -604,19 +604,19 @@ openvas-adduser
 
 这会让你创建普通用户：
 
-1.  输入登录名称。
+1.输入登录名称。
 
-2.  在校验请求上按下回车键（这会自动选择密码）。
+2.在校验请求上按下回车键（这会自动选择密码）。
 
-3.  输入两次密码。
+3.输入两次密码。
 
-4.  对于规则，按下`Ctrl + D`。
+4.对于规则，按下`Ctrl + D`。
 
-5.  按下`Y`来添加用户。
+5.按下`Y`来添加用户。
 
 ![](img/5-6-4.jpg)
 
-0.  执行下列命令来配置 OpenVAS 的交互端口：
+0.执行下列命令来配置 OpenVAS 的交互端口：
 
 ```
 openvasmd -p 9390 -a 127.0.0.1
@@ -626,7 +626,7 @@ gsad --http-only --listen=127.0.0.1 -p 9392
 
 > 9392 是用于 Web 浏览器的推荐端口，但是你可以自己选择。
 
-1.  访问<http://127.0.0.1:9392>，在你的浏览器中查看 OpenVAS 的 Web 界面。
+1.访问<http://127.0.0.1:9392>，在你的浏览器中查看 OpenVAS 的 Web 界面。
 
 ![](img/5-6-5.jpg)
 
@@ -644,15 +644,15 @@ gsad --http-only --listen=127.0.0.1 -p 9392
 
 每次你打算启动 OpenVAS 的时候，你需要：
 
-1.  同步 NVT 版本（这非常不错，因为这些项目会在新漏洞发现的时候更改）。
+1.同步 NVT 版本（这非常不错，因为这些项目会在新漏洞发现的时候更改）。
 
-2.  启动 OpenVAS 扫描器。
+2.启动 OpenVAS 扫描器。
 
-3.  重建数据库。
+3.重建数据库。
 
-4.  备份数据库。
+4.备份数据库。
 
-5.  配置你的端口。
+5.配置你的端口。
 
 为了节省时间，下面的简单 Bash 脚本可以让你启动 OpenVAS。把文件保存为` OpenVAS.sh`，并放在你的`/root`文件夹中：
 
@@ -671,17 +671,17 @@ gsad --http-only --listen=127.0.0.1 -p 9392
 
 你可以选择通过 OpenVAS 桌面来执行相同步骤。OpenVAS 桌面是一个 GUI 应用。为了启动这个应用：
 
-1.  在 Kali Linux 的桌面的启动菜单中，访问`Applications | Kali Linux | Vulnerability Assessment | Vulnerability Scanners | OpenVAS | Start GreenBone Security Desktop`，就像下面展示的那样：
+1.在 Kali Linux 的桌面的启动菜单中，访问`Applications | Kali Linux | Vulnerability Assessment | Vulnerability Scanners | OpenVAS | Start GreenBone Security Desktop`，就像下面展示的那样：
 
 ![](img/5-6-6.jpg)
 
-2.  将服务器地址输入为`127.0.0.1`。
+2.将服务器地址输入为`127.0.0.1`。
 
-3.  输入你的用户名。
+3.输入你的用户名。
 
-4.  输入你的密码。
+4.输入你的密码。
 
-5.  点击`Log in`按钮。
+5.点击`Log in`按钮。
 
 ### 5.7 OpenVAS - 发现本地漏洞
 
@@ -691,27 +691,27 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 让我们以使用 OpenVAS 发现本地漏洞开始，首先打开 Firefox 浏览器：
 
-1.  访问<http://127.0.0.1:9392>并登陆 OpenVAS。
+1.访问<http://127.0.0.1:9392>并登陆 OpenVAS。
 
-2.  访问` Configuration | Scan Configs`。
+2.访问` Configuration | Scan Configs`。
 
 ![](img/5-7-1.jpg)
 
-3.  输入扫描的名称。这个秘籍中，我们使用` Local Vulnerabilities`。
+3.输入扫描的名称。这个秘籍中，我们使用` Local Vulnerabilities`。
 
-4.  我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
+4.我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
 
-5.  点击` Create Scan Config`：
+5.点击` Create Scan Config`：
 
 ![](img/5-7-2.jpg)
 
-6.  我们现在打算编辑我们的扫描配置。点击` Local Vulnerabilities`旁边的扳手图标。
+6.我们现在打算编辑我们的扫描配置。点击` Local Vulnerabilities`旁边的扳手图标。
 
 ![](img/5-7-3.jpg)
 
-7.  按下`Ctrl + F`并在查找框中输入`Local`。
+7.按下`Ctrl + F`并在查找框中输入`Local`。
 
-8.  对于每个找到的本地族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
+8.对于每个找到的本地族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
 
 + `Compliance`
 + `Credentials`
@@ -722,17 +722,17 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 ![](img/5-7-4.jpg)
 
-9.  点击`Save Config`。
+9.点击`Save Config`。
 
-0.  访问`Configuration | Targets`：
+0.访问`Configuration | Targets`：
 
 ![](img/5-7-5.jpg)
 
-1.  创建新的目标并执行下列操作：
+1.创建新的目标并执行下列操作：
 
-1.  输入目标名称。
+1.输入目标名称。
 
-2.  输入主机，通过下列方式之一：
+2.输入主机，通过下列方式之一：
 
 +   输入唯一的地址：`192.168.0.10 `
 
@@ -740,27 +740,27 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 +   输入地址范围：`192.168.0.1-20`
 
-2.  点击` Create Target`。
+2.点击` Create Target`。
 
-3.  现在选择` Scan Management | New Task`，并执行下列操作：
+3.现在选择` Scan Management | New Task`，并执行下列操作：
 
-1.  输入任务名称。
+1.输入任务名称。
 
-2.  输入注释（可选）。
+2.输入注释（可选）。
 
-3.  选择你的扫描配置。这里是` Local Vulnerabilities`。
+3.选择你的扫描配置。这里是` Local Vulnerabilities`。
 
-4.  选择扫描目标。这里是`Local Network`。
+4.选择扫描目标。这里是`Local Network`。
 
-5.  所有其他选项保留默认。
+5.所有其他选项保留默认。
 
-6.  点击` Create Task`。
+6.点击` Create Task`。
 
 ![](img/5-7-6.jpg)
 
-4.  现在访问` Scan Management | Tasks`。
+4.现在访问` Scan Management | Tasks`。
 
-5.  点击扫描旁边的播放按钮。这里是`Local Vulnerability Scan`：
+5.点击扫描旁边的播放按钮。这里是`Local Vulnerability Scan`：
 
 ![](img/5-7-7.jpg)
 
@@ -772,13 +772,13 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 一旦执行了扫描，你可以通过查看报告来观察结果：
 
-1.  访问` Scan Management | Tasks`。
+1.访问` Scan Management | Tasks`。
 
-2.  点击`Local Vulnerabilities Scan`旁边的放大镜图标：
+2.点击`Local Vulnerabilities Scan`旁边的放大镜图标：
 
 ![](img/5-7-8.jpg)
 
-3.  点击下载箭头来查看报告：
+3.点击下载箭头来查看报告：
 
 ![](img/5-7-9.jpg)
 
@@ -799,25 +799,25 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 让我们以使用 OpenVAS 发现网络漏洞开始，首先打开 Firefox 浏览器：
 
-1.  访问<http://127.0.0.1:9392>并登陆 OpenVAS。
+1.访问<http://127.0.0.1:9392>并登陆 OpenVAS。
 
-2.  访问` Configuration | Scan Configs`。
+2.访问` Configuration | Scan Configs`。
 
 ![](img/5-8-1.jpg)
 
-3.  输入扫描的名称。这个秘籍中，我们使用` Network Vulnerabilities`。
+3.输入扫描的名称。这个秘籍中，我们使用` Network Vulnerabilities`。
 
-4.  我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
+4.我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
 
-5.  点击` Create Scan Config`：
+5.点击` Create Scan Config`：
 
 ![](img/5-8-2.jpg)
 
-6.  我们现在打算编辑我们的扫描配置。点击` Network Vulnerabilities`旁边的扳手图标。
+6.我们现在打算编辑我们的扫描配置。点击` Network Vulnerabilities`旁边的扳手图标。
 
-7.  按下`Ctrl + F`并在查找框中输入`Network `。
+7.按下`Ctrl + F`并在查找框中输入`Network `。
 
-8.  对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
+8.对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
 
 + `Brute force attacks`
 + `Buffer overflow`
@@ -849,17 +849,17 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 ![](img/5-8-3.jpg)
 
-9.  点击`Save Config`。
+9.点击`Save Config`。
 
-0.  访问`Configuration | Targets`：
+0.访问`Configuration | Targets`：
 
 ![](img/5-8-4.jpg)
 
-1.  创建新的目标并执行下列操作：
+1.创建新的目标并执行下列操作：
 
-1.  输入目标名称。
+1.输入目标名称。
 
-2.  输入主机，通过下列方式之一：
+2.输入主机，通过下列方式之一：
 
 +   输入唯一的地址：`192.168.0.10 `
 
@@ -867,27 +867,27 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 +   输入地址范围：`192.168.0.1-20`
 
-2.  点击` Create Target`。
+2.点击` Create Target`。
 
-3.  现在选择` Scan Management | New Task`，并执行下列操作：
+3.现在选择` Scan Management | New Task`，并执行下列操作：
 
-1.  输入任务名称。
+1.输入任务名称。
 
-2.  输入注释（可选）。
+2.输入注释（可选）。
 
-3.  选择你的扫描配置。这里是` Network Vulnerabilities`。
+3.选择你的扫描配置。这里是` Network Vulnerabilities`。
 
-4.  选择扫描目标。这里是`Local Network`。
+4.选择扫描目标。这里是`Local Network`。
 
-5.  所有其他选项保留默认。
+5.所有其他选项保留默认。
 
-6.  点击` Create Task`。
+6.点击` Create Task`。
 
 ![](img/5-8-5.jpg)
 
-4.  现在访问` Scan Management | Tasks`。
+4.现在访问` Scan Management | Tasks`。
 
-5.  点击扫描旁边的播放按钮。这里是`Network Vulnerability Scan`：
+5.点击扫描旁边的播放按钮。这里是`Network Vulnerability Scan`：
 
 #### 工作原理
 
@@ -897,11 +897,11 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 一旦执行了扫描，你可以通过查看报告来观察结果：
 
-1.  访问` Scan Management | Tasks`。
+1.访问` Scan Management | Tasks`。
 
-2.  点击`Network Vulnerabilities Scan`旁边的放大镜图标：
+2.点击`Network Vulnerabilities Scan`旁边的放大镜图标：
 
-3.  点击下载箭头来查看报告：
+3.点击下载箭头来查看报告：
 
 ![](img/5-8-6.jpg)
 
@@ -920,25 +920,25 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 让我们以使用 OpenVAS 发现 Linux 特定漏洞开始，首先打开 Firefox 浏览器：
 
-1.  访问<http://127.0.0.1:9392>并登陆 OpenVAS。
+1.访问<http://127.0.0.1:9392>并登陆 OpenVAS。
 
-2.  访问` Configuration | Scan Configs`。
+2.访问` Configuration | Scan Configs`。
 
 ![](img/5-9-1.jpg)
 
-3.  输入扫描的名称。这个秘籍中，我们使用`Linux Vulnerabilities`。
+3.输入扫描的名称。这个秘籍中，我们使用`Linux Vulnerabilities`。
 
-4.  我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
+4.我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
 
-5.  点击` Create Scan Config`：
+5.点击` Create Scan Config`：
 
 ![](img/5-9-2.jpg)
 
-6.  我们现在打算编辑我们的扫描配置。点击`Linux Vulnerabilities`旁边的扳手图标。
+6.我们现在打算编辑我们的扫描配置。点击`Linux Vulnerabilities`旁边的扳手图标。
 
-7.  按下`Ctrl + F`并在查找框中输入`Linux`。
+7.按下`Ctrl + F`并在查找框中输入`Linux`。
 
-8.  对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
+8.对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
 
 + `Brute force attacks`
 + `Buffer overflow`
@@ -968,15 +968,15 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 ![](img/5-9-3.jpg)
 
-9.  点击`Save Config`。
+9.点击`Save Config`。
 
-0.  访问`Configuration | Targets`：
+0.访问`Configuration | Targets`：
 
-1.  创建新的目标并执行下列操作：
+1.创建新的目标并执行下列操作：
 
-1.  输入目标名称。
+1.输入目标名称。
 
-2.  输入主机，通过下列方式之一：
+2.输入主机，通过下列方式之一：
 
 +   输入唯一的地址：`192.168.0.10 `
 
@@ -984,27 +984,27 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 +   输入地址范围：`192.168.0.1-20`
 
-2.  点击` Create Target`。
+2.点击` Create Target`。
 
-3.  现在选择` Scan Management | New Task`，并执行下列操作：
+3.现在选择` Scan Management | New Task`，并执行下列操作：
 
-1.  输入任务名称。
+1.输入任务名称。
 
-2.  输入注释（可选）。
+2.输入注释（可选）。
 
-3.  选择你的扫描配置。这里是`Linux Vulnerabilities`。
+3.选择你的扫描配置。这里是`Linux Vulnerabilities`。
 
-4.  选择扫描目标。这里是`Local Network`。
+4.选择扫描目标。这里是`Local Network`。
 
-5.  所有其他选项保留默认。
+5.所有其他选项保留默认。
 
-6.  点击` Create Task`。
+6.点击` Create Task`。
 
 ![](img/5-9-4.jpg)
 
-4.  现在访问` Scan Management | Tasks`。
+4.现在访问` Scan Management | Tasks`。
 
-5.  点击扫描旁边的播放按钮。这里是`Linux Vulnerability Scan`：
+5.点击扫描旁边的播放按钮。这里是`Linux Vulnerability Scan`：
 
 #### 工作原理
 
@@ -1014,11 +1014,11 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 一旦执行了扫描，你可以通过查看报告来观察结果：
 
-1.  访问` Scan Management | Tasks`。
+1.访问` Scan Management | Tasks`。
 
-2.  点击`Linux Vulnerabilities Scan`旁边的放大镜图标：
+2.点击`Linux Vulnerabilities Scan`旁边的放大镜图标：
 
-3.  点击下载箭头来查看报告：
+3.点击下载箭头来查看报告：
 
 ![](img/5-9-5.jpg)
 
@@ -1037,25 +1037,25 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 让我们以使用 OpenVAS 发现 Windows 特定漏洞开始，首先打开 Firefox 浏览器：
 
-1.  访问<http://127.0.0.1:9392>并登陆 OpenVAS。
+1.访问<http://127.0.0.1:9392>并登陆 OpenVAS。
 
-2.  访问` Configuration | Scan Configs`。
+2.访问` Configuration | Scan Configs`。
 
 ![](img/5-10-1.jpg)
 
-3.  输入扫描的名称。这个秘籍中，我们使用`Windows Vulnerabilities`。
+3.输入扫描的名称。这个秘籍中，我们使用`Windows Vulnerabilities`。
 
-4.  我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
+4.我们选择`Empty, static and fast`选项。这个选项可以让我们从零开始并创建我们自己的配置。
 
-5.  点击` Create Scan Config`：
+5.点击` Create Scan Config`：
 
 ![](img/5-10-2.jpg)
 
-6.  我们现在打算编辑我们的扫描配置。点击`Windows Vulnerabilities`旁边的扳手图标。
+6.我们现在打算编辑我们的扫描配置。点击`Windows Vulnerabilities`旁边的扳手图标。
 
-7.  按下`Ctrl + F`并在查找框中输入`Windows`。
+7.按下`Ctrl + F`并在查找框中输入`Windows`。
 
-8.  对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
+8.对于每个找到的族，点击` Select all NVT's `框中的复选框。族是一组漏洞。选择的漏洞为：
 
 + `Brute force attacks`
 + `Buffer overflow`
@@ -1083,17 +1083,17 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 ![](img/5-10-3.jpg)
 
-9.  点击`Save Config`。
+9.点击`Save Config`。
 
-0.  访问`Configuration | Targets`：
+0.访问`Configuration | Targets`：
 
 ![](img/5-10-5.jpg)
 
-1.  创建新的目标并执行下列操作：
+1.创建新的目标并执行下列操作：
 
-1.  输入目标名称。
+1.输入目标名称。
 
-2.  输入主机，通过下列方式之一：
+2.输入主机，通过下列方式之一：
 
 +   输入唯一的地址：`192.168.0.10 `
 
@@ -1101,27 +1101,27 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 +   输入地址范围：`192.168.0.1-20`
 
-2.  点击` Create Target`。
+2.点击` Create Target`。
 
-3.  现在选择` Scan Management | New Task`，并执行下列操作：
+3.现在选择` Scan Management | New Task`，并执行下列操作：
 
-1.  输入任务名称。
+1.输入任务名称。
 
-2.  输入注释（可选）。
+2.输入注释（可选）。
 
-3.  选择你的扫描配置。这里是`Windows Vulnerabilities`。
+3.选择你的扫描配置。这里是`Windows Vulnerabilities`。
 
-4.  选择扫描目标。这里是`Local Network`。
+4.选择扫描目标。这里是`Local Network`。
 
-5.  所有其他选项保留默认。
+5.所有其他选项保留默认。
 
-6.  点击` Create Task`。
+6.点击` Create Task`。
 
 ![](img/5-10-4.jpg)
 
-4.  现在访问` Scan Management | Tasks`。
+4.现在访问` Scan Management | Tasks`。
 
-5.  点击扫描旁边的播放按钮。这里是`Windows Vulnerability Scan`：
+5.点击扫描旁边的播放按钮。这里是`Windows Vulnerability Scan`：
 
 #### 工作原理
 
@@ -1131,10 +1131,10 @@ OpenVAS 允许我们攻击很多种类的漏洞，它们取决于我们的版本
 
 一旦执行了扫描，你可以通过查看报告来观察结果：
 
-1.  访问` Scan Management | Tasks`。
+1.访问` Scan Management | Tasks`。
 
-2.  点击`Windows Vulnerabilities Scan`旁边的放大镜图标：
+2.点击`Windows Vulnerabilities Scan`旁边的放大镜图标：
 
-3.  点击下载箭头来查看报告：
+3.点击下载箭头来查看报告：
 
 ![](img/5-9-5.jpg)

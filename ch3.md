@@ -22,49 +22,49 @@
 
 让我们通过打开VirtualBox 来开始：
 
-1.  启动VirtualBox ，并点击`New`来开启虚拟机向导：
+1.启动VirtualBox ，并点击`New`来开启虚拟机向导：
 
 ![](img/3-1-1.jpg)
 
-2. 点击`Next`按钮，输入虚拟机的名称，并选择 OS 类型和版本：这一章中我们会使用 Linux、Solaris 或 Windows 操作系统。选择合适的操作系统并点击`Next`按钮来继续：
+2.点击`Next`按钮，输入虚拟机的名称，并选择 OS 类型和版本：这一章中我们会使用 Linux、Solaris 或 Windows 操作系统。选择合适的操作系统并点击`Next`按钮来继续：
 
 ![](img/3-1-2.jpg)
 
-3. 选择基本内存（RAM）的总量，它们会分配给虚拟机。我们使用默认值。点击`Next`。
+3.选择基本内存（RAM）的总量，它们会分配给虚拟机。我们使用默认值。点击`Next`。
 
-4. 为新的虚拟机创建新的虚拟硬盘，点击`Next`按钮。
+4.为新的虚拟机创建新的虚拟硬盘，点击`Next`按钮。
 
 ![](img/3-1-3.jpg)
 
-5. 新的向导窗口会打开。保留默认的 VDI 文件类型，因为我们不打算使用其它可视化软件。
+5.新的向导窗口会打开。保留默认的 VDI 文件类型，因为我们不打算使用其它可视化软件。
 
-6. 我们会在虚拟磁盘储存上保留默认选项。点击`Next`来继续。
+6.我们会在虚拟磁盘储存上保留默认选项。点击`Next`来继续。
 
-7. 设置虚拟磁盘文件位置和大小：
+7.设置虚拟磁盘文件位置和大小：
 
 ![](img/3-1-4.jpg)
 
-8. 检查设置是否正确，并且点击`Create`按钮来开始创建虚拟磁盘文件。
+8.检查设置是否正确，并且点击`Create`按钮来开始创建虚拟磁盘文件。
 
-9. 我们现在回到前一个向导，展示了虚拟机参数的汇总。点击`Create`来结束：
+9.我们现在回到前一个向导，展示了虚拟机参数的汇总。点击`Create`来结束：
 
 ![](img/3-1-5.jpg)
 
-10. 创建新的虚拟机之后，我们准备好了安装操作系统，它刚刚在 VirtualBox中配置好。
+10.创建新的虚拟机之后，我们准备好了安装操作系统，它刚刚在 VirtualBox中配置好。
 
-11. 在VirtualBox的主窗口中，选中我们刚刚创建的操作系统名称，之后点击`Settings`按钮：
+11.在VirtualBox的主窗口中，选中我们刚刚创建的操作系统名称，之后点击`Settings`按钮：
 
 ![](img/3-1-6.jpg)
 
-12. 既然基本的安装步骤已经完成了，我们现在使用下载的 ISO 文件作为虚拟光盘。这会节省你烧录物理 DVD 来完成安装的时间。在`Settings`界面，点击`Storage`菜单项：
+12.既然基本的安装步骤已经完成了，我们现在使用下载的 ISO 文件作为虚拟光盘。这会节省你烧录物理 DVD 来完成安装的时间。在`Settings`界面，点击`Storage`菜单项：
 
 ![](img/3-1-7.jpg)
 
-13. 之后，在`Storage Tree`下面，选中`Controller: IDE`下面的`Empty`光盘图标。这会选择我们的“虚拟” CD/DVD ROM 驱动。在屏幕的右边，`Attribute`下面，点击光盘图标。在弹出的菜单中，从列表中选择你的 ISO 文件。如果 ISO 文件没有出现，选择`Choose a virtual CD/DVD disc file... `选项并找到你的 ISO。一旦你完成了这些步骤，点击`OK`按钮。
+13.之后，在`Storage Tree`下面，选中`Controller: IDE`下面的`Empty`光盘图标。这会选择我们的“虚拟” CD/DVD ROM 驱动。在屏幕的右边，`Attribute`下面，点击光盘图标。在弹出的菜单中，从列表中选择你的 ISO 文件。如果 ISO 文件没有出现，选择`Choose a virtual CD/DVD disc file... `选项并找到你的 ISO。一旦你完成了这些步骤，点击`OK`按钮。
 
 ![](img/3-1-8.jpg)
 
-14. 点击`Start`按钮，之后点击内部的新窗口，并执行安装。安装步骤在这一章的“安装到硬盘”中有所涉及。
+14.点击`Start`按钮，之后点击内部的新窗口，并执行安装。安装步骤在这一章的“安装到硬盘”中有所涉及。
 
 #### 工作原理
 
@@ -76,24 +76,24 @@
 
 我们所执行的操作可能会让主机不稳定甚至崩溃。VirtualBox提供了杰出的工具来备份虚拟环境：
 
-1.  在主窗口中，点击你打算备份的虚拟服务器：
+1.在主窗口中，点击你打算备份的虚拟服务器：
 
-2. 右击虚拟服务器，点击`Clone`菜单项：
+2.右击虚拟服务器，点击`Clone`菜单项：
 
 ![](img/3-1-9.jpg)
 
-3. 在克隆窗口中，为你的新虚拟服务器输入名称。
+3.在克隆窗口中，为你的新虚拟服务器输入名称。
 
 ![](img/3-1-10.jpg)
 
-4. 点击`Next`，在随后的界面中，选择`Linked clone `或`Full clone`，它们在下面展示：
+4.点击`Next`，在随后的界面中，选择`Linked clone `或`Full clone`，它们在下面展示：
 
 +   `Full clone`：在完整克隆的模式中，会创建完全独立的虚拟机备份。
 +   `Linked clone`：在链接克隆的模式中，会截取快照来创建备份。但是，链接克隆依赖于原始文件的功能。这会降低链接克隆的性能。
 
 ![](img/3-1-11.jpg)
 
-5. 点击`Clone`并等待虚拟机克隆完成。
+5.点击`Clone`并等待虚拟机克隆完成。
 
 ![](img/3-1-12.jpg)
 
@@ -111,21 +111,21 @@
 
 下载 Windows 靶机的步骤如下所示：
 
-1.  打开浏览器并访问 Microsoft Technet：<http://technet. microsoft.com/en-us/ms376608>。
+1.打开浏览器并访问 Microsoft Technet：<http://technet. microsoft.com/en-us/ms376608>。
 
-2. 在屏幕的右侧，点击`Downloads`链接：
+2.在屏幕的右侧，点击`Downloads`链接：
 
 ![](img/3-2-1.jpg)
 
-3. 在`Download`菜单项中，选择`Evaluate new products`。
+3.在`Download`菜单项中，选择`Evaluate new products`。
 
 ![](img/3-2-2.jpg)
 
-4. 在下一个界面中，你可以选择要下载的东西，取决于你想要测试的产品。推荐你选择 Windows Server 2012，Windows 8 和 Windows 7。
+4.在下一个界面中，你可以选择要下载的东西，取决于你想要测试的产品。推荐你选择 Windows Server 2012，Windows 8 和 Windows 7。
 
 ![](img/3-2-3.jpg)
 
-5. 一旦你下载了 ISO，请遵循这一章“熟悉VirtualBox”秘籍中的指南。
+5.一旦你下载了 ISO，请遵循这一章“熟悉VirtualBox”秘籍中的指南。
 
 
 ### 3.3 下载 Linux 靶机
@@ -142,13 +142,13 @@
 
 下载 Linux 靶机的步骤如下所示：
 
-1.  打开浏览器并访问 Distro Watch：<http://www.distrowatch.com>。
+1.打开浏览器并访问 Distro Watch：<http://www.distrowatch.com>。
 
-2. 你会看到超过 100 个 Linux 发行版的列表。推荐选择一个最小的发行版，而不是流行的版本（CentOS、Ubuntu、Fedora 和 Debian）。这个页面像下面这样：
+2.你会看到超过 100 个 Linux 发行版的列表。推荐选择一个最小的发行版，而不是流行的版本（CentOS、Ubuntu、Fedora 和 Debian）。这个页面像下面这样：
 
 ![](img/3-3-1.jpg)
 
-3. 一旦你下载了 ISO，请遵循这一章“熟悉VirtualBox”秘籍中的指南。
+3.一旦你下载了 ISO，请遵循这一章“熟悉VirtualBox”秘籍中的指南。
 
 ### 3.4 攻击 WordPress 和其它应用
 
@@ -164,15 +164,15 @@
 
 攻击 WordPress 应用的步骤如下所示：
 
-1.  打开浏览器并访问 Turnkey Linux 的主页：<http://www. turnkeylinux.org>。主页如图所示：
+1.打开浏览器并访问 Turnkey Linux 的主页：<http://www. turnkeylinux.org>。主页如图所示：
 
 ![](img/3-4-1.jpg)
 
-2. 有许多应用在这里列出，我推荐都试试它们，便于你发现漏洞并提升这方面的技能。但是，对于这个秘籍，我们只测试 WordPress。在` Instant Search`框中，输入`WordPress`。
+2.有许多应用在这里列出，我推荐都试试它们，便于你发现漏洞并提升这方面的技能。但是，对于这个秘籍，我们只测试 WordPress。在` Instant Search`框中，输入`WordPress`。
 
 ![](img/3-4-2.jpg)
 
-3. 在 WordPress 下载页面中，选择 ISO 镜像。下载完成后，请遵循这一章“熟悉VirtualBox”秘籍中的指南：
+3.在 WordPress 下载页面中，选择 ISO 镜像。下载完成后，请遵循这一章“熟悉VirtualBox”秘籍中的指南：
 
 ![](img/3-4-3.jpg)
 
@@ -192,7 +192,7 @@ WPScan 接受多种参数，包括：
 
 > 确保你的 WordPress虚拟机和 Kali Linux 虚拟机都开着，并使用`VirtualBox Host Only Adapter `网络设置。
 
-1.  在 Kali Linux 虚拟机中，加载器 WPScan 帮助文件：
+1.在 Kali Linux 虚拟机中，加载器 WPScan 帮助文件：
 
 ```
 wpscan -h
@@ -202,12 +202,12 @@ wpscan -h
 
 ![](img/3-4-4.jpg)
 
-2. 让我们对WordPress虚拟机执行基本的 WPScan测试。这里，我们靶机的IP地址是`192.168.56.102`。
+2.让我们对WordPress虚拟机执行基本的 WPScan测试。这里，我们靶机的IP地址是`192.168.56.102`。
 
 ```
 wpscan –u 192.168.56.102
 ```
-3. 现在，让我们通过执行下列命令枚举用户名列表：
+3.现在，让我们通过执行下列命令枚举用户名列表：
 
 ```
 wpscan –u 192.186.56.102 –e u vp
@@ -217,7 +217,7 @@ wpscan –u 192.186.56.102 –e u vp
 
 ![](img/3-4-5.jpg)
 
-4. 最后，我们通过使用`–wordlist <文件路径>`选项来提供单词列表：
+4.最后，我们通过使用`–wordlist <文件路径>`选项来提供单词列表：
 
 ```
 wpscan –u 192.168.56.102 -e u --wordlist /root/wordlist.txt
@@ -227,4 +227,4 @@ wpscan –u 192.168.56.102 -e u --wordlist /root/wordlist.txt
 
 ![](img/3-4-6.jpg)
 
-5. 这就结束了。我们已经成功获取了 WordPress 的密码。
+5.这就结束了。我们已经成功获取了 WordPress 的密码。

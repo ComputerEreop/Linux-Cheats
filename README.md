@@ -1,6 +1,6 @@
 ## Kali Linux 秘籍 中文版
 
-原书：[Kali Linux Cookbook](https://www.packtpub.com/networking-and-servers/kali-linux-cookbook)
+[原书：Kali Linux Cookbook](https://www.packtpub.com/networking-and-servers/kali-linux-cookbook)	[GitBook在线阅读，PDF、ePub、Mobi电子书下载](https://www.gitbook.com/book/alleniverson/linux-cheats/details)
 
 ![](cover.jpg)
 

